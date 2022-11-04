@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
-    "format": "prettier --write . "
+    "format": "prettier --write . ",
+    "generate": "scaffdog generate"
   },
   "dependencies": {
     "@types/node": "18.11.9",
@@ -25,6 +26,7 @@
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "prettier": "2.7.1",
+    "sass": "^1.56.0",
     "scaffdog": "^2.4.0"
   },
   "lint-staged": {
