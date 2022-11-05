@@ -1,12 +1,21 @@
+import Image from "next/image";
 import styles from "./Hero.module.scss";
 
 type HeroProps = {};
 
 export const Hero = (props: HeroProps) => {
   return (
-    <div className="h-screen ">
-      <div className="flex flex-col justify-center h-full items-center">
-        <h1 className="text-text font-bold text-5xl w-full">
+    <div className="relative h-screen">
+      <div className="absolute top-0 left-0  h-full w-full ">
+        <Image
+          alt="list"
+          fill
+          className="h-full w-full object-cover opacity-20"
+          src={"/imgs/VRChat_2560x1440_2022-05-10_18-52-09 12.png"}
+        />
+      </div>
+      <div className="absolute top-0 left-0 flex h-full flex-col items-center justify-center px-4">
+        <h1 className="w-full text-5xl font-bold text-text">
           バーチャルを
           <ruby>
             生活
