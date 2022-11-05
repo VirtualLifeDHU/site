@@ -14,7 +14,10 @@ export const Hero = (props: HeroProps) => {
           src={"/imgs/VRChat_2560x1440_2022-05-10_18-52-09 12.png"}
         />
       </div>
-      <div className="absolute top-0 left-0 flex h-full flex-col items-center justify-center px-4">
+      <div className="absolute top-0 left-0  flex h-full w-full items-center ">
+        <div className={`${styles.gradetion} `}></div>
+      </div>
+      <div className="absolute top-0 left-0 m-auto flex h-full w-full max-w-[1000px] flex-col items-center justify-center px-4">
         <h1 className="w-full text-5xl font-bold text-text">
           バーチャルを
           <ruby>
