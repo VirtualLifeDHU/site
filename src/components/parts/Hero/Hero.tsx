@@ -9,7 +9,8 @@ export const Hero = (props: HeroProps) => {
       <div className="absolute top-0 left-0  h-full w-full ">
         <Image
           alt="list"
-          fill
+          width={"1280"}
+          height={"720"}
           className="h-full w-full object-cover opacity-20"
           src={"/imgs/VRChat_2560x1440_2022-05-10_18-52-09 12.png"}
         />
