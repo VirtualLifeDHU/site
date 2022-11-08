@@ -41,41 +41,41 @@ export const use{{inputs.name | pascal}} = () => {
 }
 ```
 
-# `{{ inputs.name | pascal }}/{{ inputs.name | pascal }}.stories.tsx`
-
-```typescript
-import { action } from '@storybook/addon-actions'
-import type { ComponentMeta, ComponentStoryObj } from '@storybook/react'
-
-import { {{ inputs.name | pascal }} } from './{{ inputs.name | pascal }}'
-
-export default {
-  component: {{ inputs.name | pascal }},
-} as ComponentMeta<typeof {{ inputs.name | pascal }}>
-
-export const Default: ComponentStoryObj<typeof {{ inputs.name | pascal }}> = {
-  args: { onClick: action('クリック') },
-  parameters: {
-    docs: {
-      description: {
-        component: `コンポーネントの説明マークダウン。`,
-      },
-    },
-  },
-}
-export const Story: ComponentStoryObj<typeof {{ inputs.name | pascal }}> = {
-  args: { onClick: action('クリック') },
-  parameters: {
-    docs: {
-      description: {
-        story: `Storyの説明マークダウン。`,
-      },
-    },
-  },
-}
-
-
-```
+<!-- # `{{ inputs.name | pascal }}/{{ inputs.name | pascal }}.stories.tsx` -->
+<!---->
+<!-- ```typescript -->
+<!-- import { action } from '@storybook/addon-actions' -->
+<!-- import type { ComponentMeta, ComponentStoryObj } from '@storybook/react' -->
+<!---->
+<!-- import { {{ inputs.name | pascal }} } from './{{ inputs.name | pascal }}' -->
+<!---->
+<!-- export default { -->
+<!--   component: {{ inputs.name | pascal }}, -->
+<!-- } as ComponentMeta<typeof {{ inputs.name | pascal }}> -->
+<!---->
+<!-- export const Default: ComponentStoryObj<typeof {{ inputs.name | pascal }}> = { -->
+<!--   args: { onClick: action('クリック') }, -->
+<!--   parameters: { -->
+<!--     docs: { -->
+<!--       description: { -->
+<!--         component: `コンポーネントの説明マークダウン。`, -->
+<!--       }, -->
+<!--     }, -->
+<!--   }, -->
+<!-- } -->
+<!-- export const Story: ComponentStoryObj<typeof {{ inputs.name | pascal }}> = { -->
+<!--   args: { onClick: action('クリック') }, -->
+<!--   parameters: { -->
+<!--     docs: { -->
+<!--       description: { -->
+<!--         story: `Storyの説明マークダウン。`, -->
+<!--       }, -->
+<!--     }, -->
+<!--   }, -->
+<!-- } -->
+<!---->
+<!---->
+<!-- ``` -->
 
 # `{{ inputs.name | pascal }}/{{ inputs.name | pascal }}.module.scss`
 
