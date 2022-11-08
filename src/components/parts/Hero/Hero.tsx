@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { LoadingAnimationA } from "../LoadingAnimationA";
 import { HTMLMotionProps, motion } from "framer-motion";
 import styles from "./Hero.module.scss";
 
@@ -7,12 +6,12 @@ type HeroProps = {};
 
 export const Hero = (props: HeroProps) => {
   const TitleAnimation: HTMLMotionProps<"div"> = {
-    initial: { opacity: 0, x: -50 },
+    initial: { opacity: 0, x: -10 },
     animate: { opacity: 1, x: 0 },
     transition: {
       duration: 0.5,
     },
-    exit: { opacity: 0, y: 100 },
+    exit: { opacity: 0, x: -0 },
   };
 
   return (
@@ -43,16 +42,20 @@ export const Hero = (props: HeroProps) => {
       </motion.div>
       <motion.div
         {...TitleAnimation}
-        className="absolute top-0 left-0 m-auto flex h-full w-full max-w-[1000px] flex-col items-center justify-center px-4"
+        className="absolute top-0 left-0 m-auto flex h-full w-full  flex-col items-center justify-center px-4"
       >
-        <h1 className="w-full text-5xl font-bold text-text">
-          バーチャルを
-          <ruby>
-            生活
-            <rt>ライフ</rt>
-          </ruby>
-          の一部に
-        </h1>
+        <div className="w-screen max-w-max">
+          <h1 className=" w-full px-2 text-5xl font-bold text-text">
+            <span className="inline-block">バーチャルを</span>
+            <span className="inline-block">
+              <ruby>
+                生活
+                <rt>ライフ</rt>
+              </ruby>
+            </span>
+            <span className="inline-block">の一部に</span>
+          </h1>
+        </div>
       </motion.div>
     </div>
   );

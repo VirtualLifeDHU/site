@@ -8,4 +8,7 @@
     #00a3ff 49.92%,
     #ff008a 100%
   );
+  @media screen and (min-width: 1200px) {
+    width: calc(400px + ((100vw - 1200px) / 2));
+  }
 }

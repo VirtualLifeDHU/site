@@ -4,6 +4,9 @@ import { AnimatePresence } from "framer-motion";
 
 import { Layout } from "../components/Layout/Layout";
 import "../styles/global.css";
+import "react-modern-drawer/dist/index.css";
+
+import Head from "next/head";
 
 export default function MyApp({
   Component,
