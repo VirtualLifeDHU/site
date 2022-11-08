@@ -54,7 +54,11 @@ export const NavBar = () => {
         />
         <div className="hidden flex-1 flex-row-reverse items-center gap-12 md:flex">
           {NavBarLinks.map((link, index) => (
-            <a key={index} href={link.link}>
+            <a
+              key={index}
+              href={link.link}
+              className={"text-xl font-bold not-italic leading-5"}
+            >
               {link.text}
             </a>
           ))}
@@ -84,7 +88,7 @@ export const NavBar = () => {
                   key={index}
                   href={link.link}
                   className={
-                    "py-2 text-right text-3xl font-black not-italic leading-6"
+                    "py-2 text-right text-3xl font-bold not-italic leading-6"
                   }
                 >
                   {link.text}
