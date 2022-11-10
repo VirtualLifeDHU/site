@@ -13,6 +13,8 @@ module.exports = {
       },
       colors: {
         text: "#3F3F3F",
+        background: "#FAFAFA",
+        button: "#151515",
       },
     },
   },
