@@ -2,7 +2,8 @@ import React, { useLayoutEffect, useRef } from "react";
 import styles from "./Heading.module.scss";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
-
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 type HeadingProps = {
   level: 1 | 2 | 3 | 4 | 5 | 6;
   children: React.ReactNode;
@@ -15,16 +16,19 @@ export const Heading = (props: HeadingProps) => {
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
       gsap
-        .timeline()
+        .timeline({
+          scrollTrigger: {
+            trigger: ".rect",
+          },
+        })
         .from(".word", {
-          y: 56,
+          y: 36,
           opacity: 0,
-          duration: 0.75,
-          ease: "power4.out",
         })
         .to(".word", {
           y: 0,
           opacity: 1,
+          ease: "Power2.easeOut",
         })
         .to(".rect", { x: "-120%" });
     }, comp);
@@ -34,19 +38,19 @@ export const Heading = (props: HeadingProps) => {
 
   return (
     <div ref={comp}>
-      <span
-        style={{ opacity: 0, transform: "translate( 0 , 100px)" }}
-        className="word  relative inline-block overflow-hidden text-6xl font-black leading-none"
+      <h1
+        className={
+          "word  relative  inline-block  overflow-hidden  text-8xl  font-bold not-italic leading-none text-text " +
+          props.className
+        }
       >
-        <span className="rect absolute  left-0 h-full w-full bg-black"></span>
-        <span className="label">INTERACTION</span>
-      </span>
+        <span className="rect absolute  left-0 h-full w-full bg-text"></span>
+        <span className="label contents"> {props.children}</span>
+      </h1>
 
       <h1
         className={`text-8xl font-bold not-italic text-text ${props.className} gsap-animate`}
-      >
-        {props.children}
-      </h1>
+      ></h1>
     </div>
   );
 };
