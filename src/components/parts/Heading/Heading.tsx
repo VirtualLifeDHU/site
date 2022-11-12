@@ -22,7 +22,7 @@ export const Heading = (props: HeadingProps) => {
           },
         })
         .from(".word", {
-          y: 36,
+          y: 50,
           opacity: 0,
         })
         .to(".word", {
