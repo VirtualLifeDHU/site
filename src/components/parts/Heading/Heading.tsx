@@ -1,6 +1,5 @@
 import React, { useLayoutEffect, useRef } from "react";
 import styles from "./Heading.module.scss";
-import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
