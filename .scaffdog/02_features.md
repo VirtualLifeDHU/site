@@ -22,7 +22,6 @@ export * from "./{{ inputs.name | pascal }}";
 # `{{ inputs.name | pascal }}/{{ inputs.name | pascal }}.tsx`
 
 ```typescript
-{{ if inputs.hasHooks }} import {use{{ inputs.name | pascal }}} from "./use{{ inputs.name | pascal }}"{{ end }}
 import styles from './{{ inputs.name | pascal }}.module.scss'
 
 {{ if inputs.hasProps }}

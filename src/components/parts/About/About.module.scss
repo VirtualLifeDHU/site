@@ -1,0 +1,10 @@
+.with {
+  display: inline-block;
+  background: linear-gradient(
+    90deg,
+    rgba(244, 180, 230, 1) 0%,
+    rgba(99, 194, 235, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
