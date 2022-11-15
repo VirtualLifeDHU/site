@@ -12,29 +12,6 @@ type HeadingProps = {
 export const Heading = (props: HeadingProps) => {
   const comp = useRef<HTMLDivElement>(null); // create a ref for the root level element (for scoping)
 
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: ".rect",
-          },
-        })
-        .from(".word", {
-          y: 50,
-          opacity: 0,
-        })
-        .to(".word", {
-          y: 0,
-          opacity: 1,
-          ease: "Power2.easeOut",
-        })
-        .to(".rect", { x: "-120%" });
-    }, comp);
-
-    return () => ctx.revert();
-  });
-
   return (
     <div ref={comp}>
       <h1
@@ -43,7 +20,6 @@ export const Heading = (props: HeadingProps) => {
           props.className
         }
       >
-        <span className="rect absolute  left-0 h-full w-full bg-text"></span>
         <span className="label contents"> {props.children}</span>
       </h1>
 
