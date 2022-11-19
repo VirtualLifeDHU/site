@@ -22,7 +22,6 @@ export const Heading = (props: HeadingProps) => {
       >
         <span className="label contents"> {props.children}</span>
       </h1>
-
       <h1
         className={`text-8xl font-bold not-italic text-text ${props.className} gsap-animate`}
       ></h1>
