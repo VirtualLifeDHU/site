@@ -20,7 +20,7 @@ export const WeAreVirtualLife = () => {
         </div>
         <div className="absolute top-0 left-0 flex h-full items-center">
           <div>
-            <Heading level={1} className={"bg-white/80"}>
+            <Heading level={1} className={"bg-white/90"}>
               <span>We are </span>
               <span className={styles.gradesionColor}>Virtual Life</span>
             </Heading>
