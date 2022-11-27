@@ -1,9 +1,10 @@
 import logo from "../../../../public/icon/Logo 1.svg";
 import { HTMLMotionProps, motion } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
+import { useCallback, useMemo, useRef } from "react";
 import { useOffsetTop } from "../../../hooks/useOffsetTop";
 import { NavBarDrawr } from "../NavBarDrawr";
+import { useWindowScroll } from "react-use";
 
 const NavBarLinks: Array<{
   text: string;
@@ -48,19 +49,30 @@ export const NavBar = () => {
 
   const { size: NavBarPadding } = useOffsetTop({
     ref: iconRef,
-    size: { from: 40, end: 32 },
+    size: { from: 40, end: 12 },
   });
   const { size: NavBarBlur } = useOffsetTop({
     ref: iconRef,
     size: { from: 0, end: 16 },
   });
+  const { y } = useWindowScroll();
+
+  const NavBarBigBool = useMemo(() => {
+    if (y < 100) {
+      return true;
+    } else {
+      return false;
+    }
+  }, [y]);
+
   return (
     <nav
-      className="fixed top-0 left-0 z-50 m-auto w-full py-8 px-8  md:p-8"
+      className="fixed top-0 left-0 z-50 m-auto w-full py-8 px-8 duration-300  md:p-8"
       style={{
-        backgroundColor: `rgba( 255,255,255,  ${BackgroundTransparency} )`,
-        padding: `${NavBarPadding}px`,
-        backdropFilter: `blur(${NavBarBlur}px)`,
+        backgroundColor: `rgba( 255,255,255, ${NavBarBigBool ? 0 : 0.8} )`,
+        padding: `${NavBarBigBool ? 40 : 16}px`,
+        backdropFilter: `blur(${NavBarBigBool ? 0 : 16}px)`,
+        WebkitBackdropFilter: `blur(${NavBarBigBool ? 0 : 16}px)`,
       }}
     >
       <motion.div {...NavBarAnimation} className="m-auto flex max-w-max">
@@ -68,8 +80,8 @@ export const NavBar = () => {
           <Image
             alt="logo image"
             width={178}
-            className="w-[80px] md:w-[178px]"
-            style={{ width: `${IconSize}px` }}
+            className="w-[80px] duration-300 md:w-[178px]"
+            style={{ width: `${NavBarBigBool ? 178 : 60}px` }}
             src={logo}
           />
         </div>
@@ -81,6 +93,7 @@ export const NavBar = () => {
               className={"text-xl font-bold not-italic leading-5"}
             >
               {link.text}
+              {NavBarBigBool.toString()}
             </a>
           ))}
         </div>
