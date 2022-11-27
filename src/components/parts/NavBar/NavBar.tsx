@@ -1,10 +1,7 @@
-import styles from "./NavBar.module.scss";
 import logo from "../../../../public/icon/Logo 1.svg";
-import { HTMLMotionProps, motion, useScroll } from "framer-motion";
+import { HTMLMotionProps, motion } from "framer-motion";
 import Image from "next/image";
-import { SVGProps, useEffect, useMemo, useRef, useState } from "react";
-import { MenuIcon } from "../../icon/MenuIcon";
-import { CloseIcon } from "../../icon/CloseIcon";
+import { useRef } from "react";
 import { useOffsetTop } from "../../../hooks/useOffsetTop";
 import { NavBarDrawr } from "../NavBarDrawr";
 
@@ -29,12 +26,7 @@ const NavBarLinks: Array<{
     link: "",
   },
 ];
-const maxIconSize = 178; // 要素の最大サイズ
-const minIconSize = 80; // 要素の最小サイズ
-const NavBarBackgroundTransparency = {
-  min: 1,
-  max: 0,
-};
+
 export const NavBar = () => {
   const NavBarAnimation: HTMLMotionProps<"nav"> = {
     initial: { opacity: 0, y: -10 },
@@ -45,11 +37,7 @@ export const NavBar = () => {
     exit: { opacity: 0, y: 0 },
   };
   const iconRef = useRef(null);
-  const {
-    pageOffsetTop,
-    viewportTop,
-    size: IconSize,
-  } = useOffsetTop({
+  const { size: IconSize } = useOffsetTop({
     ref: iconRef,
     size: { max: 178, min: 80 },
   });
