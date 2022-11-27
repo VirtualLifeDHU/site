@@ -45,53 +45,29 @@ export const NavBar = () => {
     exit: { opacity: 0, y: 0 },
   };
   const iconRef = useRef(null);
-  const { pageOffsetTop, viewportTop } = useOffsetTop(iconRef);
+  const {
+    pageOffsetTop,
+    viewportTop,
+    size: IconSize,
+  } = useOffsetTop({
+    ref: iconRef,
+    size: { max: 178, min: 80 },
+  });
+  const { size: BackgroundTransparency } = useOffsetTop({
+    ref: iconRef,
+    size: { max: 0, min: 1 },
+  });
 
-  // 要素の位置をもとにサイズを計算
-  const iconSize = useMemo(() => {
-    // 位置を取得できなかったときは最大サイズとして表示
-    if (pageOffsetTop === undefined || viewportTop === undefined)
-      return maxIconSize;
-
-    // 位置に応じてサイズ計算
-    const size =
-      minIconSize + (viewportTop / pageOffsetTop) * (maxIconSize - minIconSize);
-
-    return size.toFixed(1);
-  }, [pageOffsetTop, viewportTop]);
-
-  const BackgroundTransparency = useMemo(() => {
-    // 位置を取得できなかったときは最大サイズとして表示
-    if (pageOffsetTop === undefined || viewportTop === undefined)
-      return maxIconSize;
-
-    // 位置に応じてサイズ計算
-    const size =
-      NavBarBackgroundTransparency.min +
-      (viewportTop / pageOffsetTop) *
-        (NavBarBackgroundTransparency.max - NavBarBackgroundTransparency.min);
-
-    return size.toFixed(1);
-  }, [pageOffsetTop, viewportTop]);
-  const NavBarPadding = useMemo(() => {
-    // 位置を取得できなかったときは最大サイズとして表示
-    if (pageOffsetTop === undefined || viewportTop === undefined)
-      return maxIconSize;
-
-    // 位置に応じてサイズ計算
-    const size =
-      NavBarBackgroundTransparency.max +
-      (viewportTop / pageOffsetTop) *
-        (NavBarBackgroundTransparency.min - NavBarBackgroundTransparency.max);
-
-    return size.toFixed(1);
-  }, [pageOffsetTop, viewportTop]);
+  const { size: NavBarPadding } = useOffsetTop({
+    ref: iconRef,
+    size: { max: 82, min: 16 },
+  });
   return (
     <nav
       className="fixed top-0 left-0 z-50 m-auto w-full py-8 px-8  md:p-8"
       style={{
         backgroundColor: `rgba( 255,255,255,  ${BackgroundTransparency} )`,
-        padding: `${16 + parseFloat(NavBarPadding.toString()) * 32}px`,
+        padding: `${NavBarPadding}px`,
       }}
     >
       <motion.div {...NavBarAnimation} className="m-auto flex max-w-max">
@@ -100,7 +76,7 @@ export const NavBar = () => {
             alt="logo image"
             width={178}
             className="w-[80px] md:w-[178px]"
-            style={{ width: `${iconSize}px` }}
+            style={{ width: `${IconSize}px` }}
             src={logo}
           />
         </div>
