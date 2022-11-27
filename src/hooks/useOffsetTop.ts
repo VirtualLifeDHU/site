@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import { useThrottle } from "./useThrottle";
 type sizeArgType = {
-  size: { max: number; min: number };
+  size: { from: number; end: number };
   ref?: React.RefObject<HTMLElement>;
 };
 export const useOffsetTop = (args: sizeArgType) => {
@@ -39,12 +39,12 @@ export const useOffsetTop = (args: sizeArgType) => {
   const size = useMemo(() => {
     // 位置を取得できなかったときは最大サイズとして表示
     if (pageOffsetTop === undefined || viewportTop === undefined)
-      return args.size.max;
+      return args.size.from;
 
     // 位置に応じてサイズ計算
     const size =
-      args.size.min +
-      (viewportTop / pageOffsetTop) * (args.size.max - args.size.min);
+      args.size.end +
+      (viewportTop / pageOffsetTop) * (args.size.from - args.size.end);
 
     return size.toFixed(1);
   }, [pageOffsetTop, viewportTop]);

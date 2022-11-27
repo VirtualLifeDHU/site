@@ -39,16 +39,20 @@ export const NavBar = () => {
   const iconRef = useRef(null);
   const { size: IconSize } = useOffsetTop({
     ref: iconRef,
-    size: { max: 178, min: 80 },
+    size: { from: 178, end: 80 },
   });
   const { size: BackgroundTransparency } = useOffsetTop({
     ref: iconRef,
-    size: { max: 0, min: 1 },
+    size: { from: 0, end: 0.8 },
   });
 
   const { size: NavBarPadding } = useOffsetTop({
     ref: iconRef,
-    size: { max: 82, min: 16 },
+    size: { from: 40, end: 32 },
+  });
+  const { size: NavBarBlur } = useOffsetTop({
+    ref: iconRef,
+    size: { from: 0, end: 16 },
   });
   return (
     <nav
@@ -56,6 +60,7 @@ export const NavBar = () => {
       style={{
         backgroundColor: `rgba( 255,255,255,  ${BackgroundTransparency} )`,
         padding: `${NavBarPadding}px`,
+        backdropFilter: `blur(${NavBarBlur}px)`,
       }}
     >
       <motion.div {...NavBarAnimation} className="m-auto flex max-w-max">
