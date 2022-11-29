@@ -38,23 +38,7 @@ export const NavBar = () => {
     exit: { opacity: 0, y: 0 },
   };
   const iconRef = useRef(null);
-  const { size: IconSize } = useOffsetTop({
-    ref: iconRef,
-    size: { from: 178, end: 80 },
-  });
-  const { size: BackgroundTransparency } = useOffsetTop({
-    ref: iconRef,
-    size: { from: 0, end: 0.8 },
-  });
 
-  const { size: NavBarPadding } = useOffsetTop({
-    ref: iconRef,
-    size: { from: 40, end: 12 },
-  });
-  const { size: NavBarBlur } = useOffsetTop({
-    ref: iconRef,
-    size: { from: 0, end: 16 },
-  });
   const { y } = useWindowScroll();
 
   const NavBarBigBool = useMemo(() => {
