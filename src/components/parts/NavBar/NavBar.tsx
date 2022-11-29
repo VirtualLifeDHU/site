@@ -77,7 +77,6 @@ export const NavBar = () => {
               className={"text-xl font-bold not-italic leading-5"}
             >
               {link.text}
-              {NavBarBigBool.toString()}
             </a>
           ))}
         </div>
