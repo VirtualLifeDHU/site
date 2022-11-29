@@ -1,22 +1,32 @@
-import React, { useEffect, useState, useCallback, useRef } from "react";
-
-export const useOffsetTop = (ref?: React.RefObject<HTMLElement>) => {
+import React, {
+  useEffect,
+  useState,
+  useCallback,
+  useRef,
+  useMemo,
+} from "react";
+import { useThrottle } from "./useThrottle";
+type sizeArgType = {
+  size: { from: number; end: number };
+  ref?: React.RefObject<HTMLElement>;
+};
+export const useOffsetTop = (args: sizeArgType) => {
   const [viewportTop, setViewportTop] = useState<number | undefined>(undefined);
   const [pageOffsetTop, setPageOffsetTop] = useState<number | undefined>(
     undefined
   );
 
   const handler = useThrottle(() => {
-    if (!ref?.current) return;
+    if (!args.ref?.current) return;
 
-    const clientRect = ref.current.getBoundingClientRect();
+    const clientRect = args.ref.current.getBoundingClientRect();
     setViewportTop(clientRect.top);
     const newPageOffsetTop = clientRect.top + window.pageYOffset;
     setPageOffsetTop(newPageOffsetTop);
   }, 100); // 100msに一度実行
 
   useEffect(() => {
-    if (!ref?.current) return;
+    if (!args.ref?.current) return;
 
     // マウント時にも実行
     handler();
@@ -26,23 +36,18 @@ export const useOffsetTop = (ref?: React.RefObject<HTMLElement>) => {
     return () => window.removeEventListener("scroll", handler);
   }, [handler]);
 
-  return { viewportTop, pageOffsetTop };
-};
+  const size = useMemo(() => {
+    // 位置を取得できなかったときは最大サイズとして表示
+    if (pageOffsetTop === undefined || viewportTop === undefined)
+      return args.size.from;
 
-// 受け取った関数をスロットリング
-export function useThrottle<T>(
-  fn: (args?: T) => void,
-  durationMS: number // スロットルする時間
-) {
-  const scrollingTimer = useRef<undefined | NodeJS.Timeout>();
-  return useCallback(
-    (args?: T) => {
-      if (scrollingTimer.current) return; // すでにタイマーがセットされている場合は何もしない
-      scrollingTimer.current = setTimeout(() => {
-        fn(args);
-        scrollingTimer.current = undefined; // タイマーをリセット
-      }, durationMS);
-    },
-    [scrollingTimer, fn, durationMS]
-  );
-}
+    // 位置に応じてサイズ計算
+    const size =
+      args.size.end +
+      (viewportTop / pageOffsetTop) * (args.size.from - args.size.end);
+
+    return size.toFixed(1);
+  }, [pageOffsetTop, viewportTop]);
+
+  return { viewportTop, pageOffsetTop, size };
+};

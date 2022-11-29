@@ -1,12 +1,10 @@
-import styles from "./NavBar.module.scss";
 import logo from "../../../../public/icon/Logo 1.svg";
-import { HTMLMotionProps, motion, useScroll } from "framer-motion";
+import { HTMLMotionProps, motion } from "framer-motion";
 import Image from "next/image";
-import { SVGProps, useEffect, useMemo, useRef, useState } from "react";
-import { MenuIcon } from "../../icon/MenuIcon";
-import { CloseIcon } from "../../icon/CloseIcon";
+import { useCallback, useMemo, useRef } from "react";
 import { useOffsetTop } from "../../../hooks/useOffsetTop";
 import { NavBarDrawr } from "../NavBarDrawr";
+import { useWindowScroll } from "react-use";
 
 const NavBarLinks: Array<{
   text: string;
@@ -29,12 +27,7 @@ const NavBarLinks: Array<{
     link: "",
   },
 ];
-const maxIconSize = 178; // 要素の最大サイズ
-const minIconSize = 80; // 要素の最小サイズ
-const NavBarBackgroundTransparency = {
-  min: 1,
-  max: 0,
-};
+
 export const NavBar = () => {
   const NavBarAnimation: HTMLMotionProps<"nav"> = {
     initial: { opacity: 0, y: -10 },
@@ -45,53 +38,25 @@ export const NavBar = () => {
     exit: { opacity: 0, y: 0 },
   };
   const iconRef = useRef(null);
-  const { pageOffsetTop, viewportTop } = useOffsetTop(iconRef);
 
-  // 要素の位置をもとにサイズを計算
-  const iconSize = useMemo(() => {
-    // 位置を取得できなかったときは最大サイズとして表示
-    if (pageOffsetTop === undefined || viewportTop === undefined)
-      return maxIconSize;
+  const { y } = useWindowScroll();
 
-    // 位置に応じてサイズ計算
-    const size =
-      minIconSize + (viewportTop / pageOffsetTop) * (maxIconSize - minIconSize);
+  const NavBarBigBool = useMemo(() => {
+    if (y < 100) {
+      return true;
+    } else {
+      return false;
+    }
+  }, [y]);
 
-    return size.toFixed(1);
-  }, [pageOffsetTop, viewportTop]);
-
-  const BackgroundTransparency = useMemo(() => {
-    // 位置を取得できなかったときは最大サイズとして表示
-    if (pageOffsetTop === undefined || viewportTop === undefined)
-      return maxIconSize;
-
-    // 位置に応じてサイズ計算
-    const size =
-      NavBarBackgroundTransparency.min +
-      (viewportTop / pageOffsetTop) *
-        (NavBarBackgroundTransparency.max - NavBarBackgroundTransparency.min);
-
-    return size.toFixed(1);
-  }, [pageOffsetTop, viewportTop]);
-  const NavBarPadding = useMemo(() => {
-    // 位置を取得できなかったときは最大サイズとして表示
-    if (pageOffsetTop === undefined || viewportTop === undefined)
-      return maxIconSize;
-
-    // 位置に応じてサイズ計算
-    const size =
-      NavBarBackgroundTransparency.max +
-      (viewportTop / pageOffsetTop) *
-        (NavBarBackgroundTransparency.min - NavBarBackgroundTransparency.max);
-
-    return size.toFixed(1);
-  }, [pageOffsetTop, viewportTop]);
   return (
     <nav
-      className="fixed top-0 left-0 z-50 m-auto w-full py-8 px-8  md:p-8"
+      className="fixed top-0 left-0 z-50 m-auto w-full py-8 px-8 duration-300  md:p-8"
       style={{
-        backgroundColor: `rgba( 255,255,255,  ${BackgroundTransparency} )`,
-        padding: `${16 + parseFloat(NavBarPadding.toString()) * 32}px`,
+        backgroundColor: `rgba( 255,255,255, ${NavBarBigBool ? 0 : 0.8} )`,
+        padding: `${NavBarBigBool ? 40 : 16}px`,
+        backdropFilter: `blur(${NavBarBigBool ? 0 : 16}px)`,
+        WebkitBackdropFilter: `blur(${NavBarBigBool ? 0 : 16}px)`,
       }}
     >
       <motion.div {...NavBarAnimation} className="m-auto flex max-w-max">
@@ -99,8 +64,8 @@ export const NavBar = () => {
           <Image
             alt="logo image"
             width={178}
-            className="w-[80px] md:w-[178px]"
-            style={{ width: `${iconSize}px` }}
+            className="w-[80px] duration-300 md:w-[178px]"
+            style={{ width: `${NavBarBigBool ? 178 : 60}px` }}
             src={logo}
           />
         </div>
@@ -112,6 +77,7 @@ export const NavBar = () => {
               className={"text-xl font-bold not-italic leading-5"}
             >
               {link.text}
+              {NavBarBigBool.toString()}
             </a>
           ))}
         </div>
