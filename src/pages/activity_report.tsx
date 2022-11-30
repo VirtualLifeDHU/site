@@ -6,6 +6,7 @@ import { Hero } from "../components/parts/Hero";
 import { Layout } from "../components/Layout/Layout";
 import { getAllActivityPosts } from "../lib/getActivity";
 import { PostType } from "../types/Posts";
+import { CardList } from "../components/parts/CardList";
 
 type ActivityReportProps = {
   allPosts: PostType[];
@@ -14,7 +15,7 @@ type ActivityReportProps = {
 const ActivityReport: NextPageWithLayout<ActivityReportProps> = (props) => (
   <div className="flex flex-col gap-32">
     <Hero HeroTitle={<span className="text-8xl">Activity Report</span>} />
-    <pre>{JSON.stringify(props.allPosts, null, 2)}</pre>
+    <CardList Posts={props.allPosts} />
   </div>
 );
 
@@ -22,13 +23,7 @@ ActivityReport.getLayout = (page) => <Layout>{page}</Layout>;
 
 export default ActivityReport;
 export const getStaticProps = async () => {
-  const allPosts = getAllActivityPosts([
-    "title",
-    "coverImage",
-    "slug",
-    "data",
-    "content",
-  ]);
+  const allPosts = getAllActivityPosts(["title", "coverImage", "slug", "data"]);
 
   return {
     props: { allPosts },
