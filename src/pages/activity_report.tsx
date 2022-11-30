@@ -4,14 +4,33 @@ import Image from "next/image";
 import { Hero } from "../components/parts/Hero";
 
 import { Layout } from "../components/Layout/Layout";
-import { About } from "../components/parts/About";
+import { getAllActivityPosts } from "../lib/getActivity";
+import { PostType } from "../types/Posts";
 
-const Home: NextPageWithLayout = () => (
+type ActivityReportProps = {
+  allPosts: PostType[];
+};
+
+const ActivityReport: NextPageWithLayout<ActivityReportProps> = (props) => (
   <div className="flex flex-col gap-32">
     <Hero HeroTitle={<span className="text-8xl">Activity Report</span>} />
+    <pre>{JSON.stringify(props.allPosts, null, 2)}</pre>
   </div>
 );
 
-Home.getLayout = (page) => <Layout>{page}</Layout>;
+ActivityReport.getLayout = (page) => <Layout>{page}</Layout>;
 
-export default Home;
+export default ActivityReport;
+export const getStaticProps = async () => {
+  const allPosts = getAllActivityPosts([
+    "title",
+    "coverImage",
+    "slug",
+    "data",
+    "content",
+  ]);
+
+  return {
+    props: { allPosts },
+  };
+};
