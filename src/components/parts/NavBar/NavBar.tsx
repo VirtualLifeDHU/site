@@ -30,10 +30,10 @@ export const NavBar = () => {
 
   return (
     <nav
-      className="fixed top-0 left-0 z-50 m-auto w-full py-8 px-8 duration-300  md:p-8"
+      className="fixed top-0 left-0 z-50 m-auto w-full py-8 px-4 duration-300  md:p-8 md:px-4"
       style={{
         backgroundColor: `rgba( 255,255,255, ${NavBarBigBool ? 0 : 0.8} )`,
-        padding: `${NavBarBigBool ? 40 : 16}px`,
+        padding: `${NavBarBigBool ? 40 : 16}px 16px`,
         backdropFilter: `blur(${NavBarBigBool ? 0 : 16}px)`,
         WebkitBackdropFilter: `blur(${NavBarBigBool ? 0 : 16}px)`,
       }}
