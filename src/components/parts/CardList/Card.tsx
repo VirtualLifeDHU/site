@@ -1,5 +1,6 @@
 import { useMotionValue } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useRef } from "react";
 import { PostType } from "../../../types/Posts";
 
@@ -16,7 +17,7 @@ export const Card: React.FC<CardProps> = (props) => {
 
   const containerRef = useRef(null);
   return (
-    <div className={""}>
+    <Link href={`/activity_reports/${props.post.slug}`} className={""}>
       {/* カード本体 */}
       <div className="relative aspect-square w-full max-w-[300px] rounded-lg bg-white	">
         {/* タイトル */}
@@ -35,6 +36,6 @@ export const Card: React.FC<CardProps> = (props) => {
           alt={"image"}
         />
       </div>
-    </div>
+    </Link>
   );
 };
