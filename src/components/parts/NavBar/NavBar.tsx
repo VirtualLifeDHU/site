@@ -2,31 +2,10 @@ import logo from "../../../../public/icon/Logo 1.svg";
 import { HTMLMotionProps, motion } from "framer-motion";
 import Image from "next/image";
 import { useCallback, useMemo, useRef } from "react";
-import { useOffsetTop } from "../../../hooks/useOffsetTop";
 import { NavBarDrawr } from "../NavBarDrawr";
 import { useWindowScroll } from "react-use";
-
-const NavBarLinks: Array<{
-  text: string;
-  link: string;
-}> = [
-  {
-    text: "ABOUT",
-    link: "",
-  },
-  {
-    text: "ACTIVITY",
-    link: "",
-  },
-  {
-    text: "SOCIAL",
-    link: "",
-  },
-  {
-    text: "CONTACT",
-    link: "",
-  },
-];
+import Link from "next/link";
+import { NavBarLinks } from "../../../lib/ProjectData";
 
 export const NavBar = () => {
   const NavBarAnimation: HTMLMotionProps<"nav"> = {
@@ -61,23 +40,25 @@ export const NavBar = () => {
     >
       <motion.div {...NavBarAnimation} className="m-auto flex max-w-max">
         <div ref={iconRef}>
-          <Image
-            alt="logo image"
-            width={178}
-            className="w-[80px] duration-300 md:w-[178px]"
-            style={{ width: `${NavBarBigBool ? 178 : 60}px` }}
-            src={logo}
-          />
+          <Link href={"/"}>
+            <Image
+              alt="logo image"
+              width={178}
+              className="w-[80px] duration-300 md:w-[178px]"
+              style={{ width: `${NavBarBigBool ? 178 : 60}px` }}
+              src={logo}
+            />
+          </Link>
         </div>
         <div className="hidden flex-1 flex-row-reverse items-center gap-12 md:flex">
           {NavBarLinks.map((link, index) => (
-            <a
+            <Link
               key={index}
               href={link.link}
               className={"text-xl font-bold not-italic leading-5"}
             >
               {link.text}
-            </a>
+            </Link>
           ))}
         </div>
         <div className="flex flex-1 flex-row-reverse items-center md:hidden">

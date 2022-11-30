@@ -2,7 +2,9 @@ import Image from "next/image";
 import { HTMLMotionProps, motion } from "framer-motion";
 import styles from "./Hero.module.scss";
 
-type HeroProps = {};
+type HeroProps = {
+  HeroTitle?: React.ReactNode;
+};
 
 export const Hero = (props: HeroProps) => {
   const TitleAnimation: HTMLMotionProps<"div"> = {
@@ -46,14 +48,18 @@ export const Hero = (props: HeroProps) => {
       >
         <div className="w-screen max-w-max">
           <h1 className=" w-full px-2 text-5xl font-bold text-text">
-            <span className="inline-block">バーチャルを</span>
-            <span className="inline-block">
-              <ruby>
-                生活
-                <rt>ライフ</rt>
-              </ruby>
-            </span>
-            <span className="inline-block">の一部に</span>
+            {props.HeroTitle || (
+              <>
+                <span className="inline-block">バーチャルを</span>
+                <span className="inline-block">
+                  <ruby>
+                    生活
+                    <rt>ライフ</rt>
+                  </ruby>
+                </span>
+                <span className="inline-block">の一部に</span>
+              </>
+            )}
           </h1>
         </div>
       </motion.div>
