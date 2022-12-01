@@ -1,10 +1,10 @@
 import { NextPageWithLayout } from "next";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import { Layout } from "../../components/Layout/Layout";
 import { getAllActivityPosts, getPostBySlug } from "../../lib/getActivity";
 import markdownToHtml from "../../lib/MarkdownToHtml";
 import { PostType } from "../../types/Posts";
+import { motion } from "framer-motion";
 import styles from "../styles/Home.module.css";
 
 type ActivityReportProps = {
@@ -12,19 +12,33 @@ type ActivityReportProps = {
 };
 const Slug: NextPageWithLayout<ActivityReportProps> = (props) => {
   return (
-    <div className="mx-auto max-w-2xl">
-      <div className="pt-52">
-        <Image
-          src={props.post.coverImage}
-          width={752}
-          height={423}
-          alt="cover image"
-        />
-      </div>
-      <div className="prose mx-auto max-w-2xl">
-        <h1>{props.post.title}</h1>
+    <div className=" w-dull prose m-auto mt-[200px] max-w-[700px]">
+      <motion.div
+        layoutId={`card-${props.post.slug}`}
+        className="relative aspect-square w-full max-w-max rounded-lg bg-white	"
+      >
+        {/* タイトル */}
+        <div className=" absolute top-0 left-0 p-4">
+          <motion.h1
+            layoutId={`title-${props.post.slug}`}
+            className=" text-3xl font-bold text-white duration-200	"
+            style={{}}
+          >
+            {props.post.title}
+          </motion.h1>
+        </div>
+        {/* 画像 */}
+        <motion.div layoutId={`image-${props.post.slug}`}>
+          <Image
+            className="h-full w-full rounded-lg object-cover"
+            width={400}
+            height={300}
+            src={props.post.coverImage}
+            alt={"image"}
+          />
+        </motion.div>
         <div dangerouslySetInnerHTML={{ __html: props.post.content }} />
-      </div>
+      </motion.div>
     </div>
   );
 };

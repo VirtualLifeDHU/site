@@ -2,7 +2,9 @@ import { useMotionValue } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useRef } from "react";
+import { motion } from "framer-motion";
 import { PostType } from "../../../types/Posts";
+import { openSpring } from "./Animation";
 
 export type CardProps = {
   post: PostType;
@@ -17,25 +19,38 @@ export const Card: React.FC<CardProps> = (props) => {
 
   const containerRef = useRef(null);
   return (
-    <Link href={`/activity_reports/${props.post.slug}`} className={""}>
+    <Link href={`/activity_report/${props.post.slug}`} className={""}>
       {/* カード本体 */}
-      <div className="relative aspect-square w-full max-w-[300px] rounded-lg bg-white	">
+      <motion.div
+        layoutId={`card-${props.post.slug}`}
+        className="relative aspect-square w-full max-w-[300px] rounded-lg bg-white	"
+        // transition={openSpring}
+      >
         {/* タイトル */}
         <div className=" absolute top-0 left-0 p-4">
-          <h2 className="text-xl font-bold text-white	" style={{}}>
-            {" "}
+          <motion.h1
+            layoutId={`title-${props.post.slug}`}
+            className=" text-xl font-bold text-white duration-200	"
+            // transition={openSpring}
+            style={{}}
+          >
             {props.post.title}
-          </h2>
+          </motion.h1>
         </div>
         {/* 画像 */}
-        <Image
-          className="h-full w-full rounded-lg object-cover"
-          width={400}
-          height={300}
-          src={props.post.coverImage}
-          alt={"image"}
-        />
-      </div>
+        <motion.div
+          // transition={openSpring}
+          layoutId={`image-${props.post.slug}`}
+        >
+          <Image
+            className="h-full w-full rounded-lg object-cover"
+            width={400}
+            height={300}
+            src={props.post.coverImage}
+            alt={"image"}
+          />
+        </motion.div>
+      </motion.div>
     </Link>
   );
 };

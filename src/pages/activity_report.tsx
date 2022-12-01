@@ -14,7 +14,6 @@ type ActivityReportProps = {
 
 const ActivityReport: NextPageWithLayout<ActivityReportProps> = (props) => (
   <div className="flex flex-col gap-32">
-    <Hero HeroTitle={<span className="text-8xl">Activity Report</span>} />
     <CardList Posts={props.allPosts} />
   </div>
 );
