@@ -6,6 +6,7 @@ import markdownToHtml from "../../lib/MarkdownToHtml";
 import { PostType } from "../../types/Posts";
 import { motion } from "framer-motion";
 import styles from "../styles/Home.module.css";
+import { closeSpring } from "../../components/parts/CardList/Animation";
 
 type ActivityReportProps = {
   post: PostType;
@@ -15,20 +16,25 @@ const Slug: NextPageWithLayout<ActivityReportProps> = (props) => {
     <div className=" w-dull prose m-auto mt-[200px] max-w-[700px]">
       <motion.div
         layoutId={`card-${props.post.slug}`}
-        className="relative aspect-square w-full max-w-max rounded-lg bg-white	"
+        transition={closeSpring}
+        className="relative aspect-square w-full max-w-max rounded-lg bg-white"
       >
         {/* タイトル */}
-        <div className=" absolute top-0 left-0 p-4">
-          <motion.h1
-            layoutId={`title-${props.post.slug}`}
-            className=" text-3xl font-bold text-white duration-200	"
+        <div className=" absolute top-0 left-0   p-4">
+          <h1
+            // layoutId={`title-${props.post.slug}`}
+            // transition={closeSpring}
+            className=" z-50 text-3xl font-bold text-white duration-200	"
             style={{}}
           >
             {props.post.title}
-          </motion.h1>
+          </h1>
         </div>
         {/* 画像 */}
-        <motion.div layoutId={`image-${props.post.slug}`}>
+        <div
+        // transition={closeSpring}
+        // layoutId={`image-${props.post.slug}`}
+        >
           <Image
             className="h-full w-full rounded-lg object-cover"
             width={400}
@@ -36,7 +42,7 @@ const Slug: NextPageWithLayout<ActivityReportProps> = (props) => {
             src={props.post.coverImage}
             alt={"image"}
           />
-        </motion.div>
+        </div>
         <div dangerouslySetInnerHTML={{ __html: props.post.content }} />
       </motion.div>
     </div>

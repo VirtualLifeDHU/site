@@ -23,27 +23,28 @@ export const Card: React.FC<CardProps> = (props) => {
       {/* カード本体 */}
       <motion.div
         layoutId={`card-${props.post.slug}`}
-        className="relative aspect-square w-full max-w-[300px] rounded-lg bg-white	"
-        // transition={openSpring}
+        className="relative aspect-square w-full max-w-[300px] rounded-lg bg-black"
+        transition={openSpring}
       >
         {/* タイトル */}
         <div className=" absolute top-0 left-0 p-4">
-          <motion.h1
-            layoutId={`title-${props.post.slug}`}
-            className=" text-xl font-bold text-white duration-200	"
+          <h1
+            // layoutId={`${props.post.slug}`}
+            className="z-50 text-xl font-bold text-white duration-200	"
             // transition={openSpring}
             style={{}}
           >
             {props.post.title}
-          </motion.h1>
+          </h1>
         </div>
         {/* 画像 */}
         <motion.div
-          // transition={openSpring}
-          layoutId={`image-${props.post.slug}`}
+          transition={openSpring}
+          // layoutId={`image-${props.post.slug}`}
+          className={"aspect-square"}
         >
           <Image
-            className="h-full w-full rounded-lg object-cover"
+            className="aspect-square h-full w-full rounded-lg object-cover"
             width={400}
             height={300}
             src={props.post.coverImage}
