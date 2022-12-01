@@ -16,15 +16,20 @@ const Slug: NextPageWithLayout<ActivityReportProps> = (props) => {
     <div className=" w-dull prose m-auto mt-[200px] max-w-[700px]">
       <motion.div
         layoutId={`card-${props.post.slug}`}
-        transition={closeSpring}
-        className="relative aspect-square w-full max-w-max rounded-lg bg-white"
+        // transition={closeSpring}
+        className="  relative aspect-square w-full max-w-max rounded-lg  bg-white "
       >
         {/* タイトル */}
-        <div className=" absolute top-0 left-0   p-4">
+        <div
+          style={{
+            background: "linear-gradient(#0000002b, #00000000)",
+          }}
+          className=" absolute top-0 left-0 w-full rounded-lg p-4"
+        >
           <h1
             // layoutId={`title-${props.post.slug}`}
             // transition={closeSpring}
-            className=" z-50 text-3xl font-bold text-white duration-200	"
+            className=" z-50  text-3xl font-bold text-white duration-200	"
             style={{}}
           >
             {props.post.title}

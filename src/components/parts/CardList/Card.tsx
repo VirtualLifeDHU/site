@@ -5,6 +5,7 @@ import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { PostType } from "../../../types/Posts";
 import { openSpring } from "./Animation";
+import style from "./CardList.module.scss";
 
 export type CardProps = {
   post: PostType;
@@ -23,14 +24,16 @@ export const Card: React.FC<CardProps> = (props) => {
       {/* カード本体 */}
       <motion.div
         layoutId={`card-${props.post.slug}`}
-        className="relative aspect-square w-full max-w-[300px] rounded-lg bg-black"
-        transition={openSpring}
+        className="relative aspect-square w-full max-w-[300px] rounded-lg  "
+        // transition={openSpring}
       >
         {/* タイトル */}
-        <div className=" absolute top-0 left-0 p-4">
+        <div
+          className={`${style.container} absolute top-0 left-0 w-full rounded-t-lg  p-4`}
+        >
           <h1
             // layoutId={`${props.post.slug}`}
-            className="z-50 text-xl font-bold text-white duration-200	"
+            className="z-50  text-xl font-bold  text-white duration-200	"
             // transition={openSpring}
             style={{}}
           >
