@@ -8,6 +8,7 @@ const nextConfig = withBundleAnalyzer(
   withExportImages({
     experimental: {
       appDir: false,
+      scrollRestoration: true,
     },
     images: {
       formats: ["image/avif", "image/webp"],

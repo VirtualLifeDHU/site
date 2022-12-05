@@ -3,29 +3,11 @@ import { MenuIcon } from "../../icon/MenuIcon";
 import Drawer from "react-modern-drawer";
 import styles from "./Drawr.module.scss";
 import { CloseIcon } from "../../icon/CloseIcon";
+import { NavBarLinks } from "../../../lib/ProjectData";
 
 type DrawrProps = {
   list?: Array<{ text: string; link: string }>;
 };
-
-export const NavBarLinks: DrawrProps["list"] = [
-  {
-    text: "ABOUT",
-    link: "",
-  },
-  {
-    text: "ACTIVITY",
-    link: "",
-  },
-  {
-    text: "SOCIAL",
-    link: "",
-  },
-  {
-    text: "CONTACT",
-    link: "",
-  },
-];
 
 export const NavBarDrawr = (props: DrawrProps) => {
   const [isOpen, setIsOpen] = useState(false);
