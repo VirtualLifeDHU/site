@@ -3,7 +3,7 @@ export const NavBarLinks: Array<{
   link: string;
 }> = [
   {
-    text: "Activity Report",
+    text: "news",
     link: "/activity_report",
   },
   {
