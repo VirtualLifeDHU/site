@@ -35,18 +35,21 @@ export const About = () => {
   return (
     <BoxAnimation>
       <div className="m-auto flex max-w-max flex-col gap-2">
-        <Heading level={1} className="inline-flex items-center gap-4">
+        <Heading
+          level={1}
+          className="inline-flex flex-col gap-4 md:flex-row md:items-center"
+        >
           <span>ABOUT</span>
-          <span>
+          <span className="hidden md:block">
             <hr className="w-28 border-gray-800 px-4" />
           </span>
           <span className="text-sm">私達について</span>
         </Heading>
-        <div>
-          <div className="rect flex items-center gap-4">
+        <div className="ml-auto">
+          <div className="rect flex flex-col items-center gap-4 p-2 md:flex-row">
             <Image src={img} alt="alt" width={600} height={400} />
-            <div>
-              <p className="inline-flex flex-col items-end text-8xl font-bold">
+            <div className="ml-auto">
+              <p className="inline-flex flex-col items-end text-6xl font-bold md:text-8xl">
                 <span>LIFE</span>
                 <span className={style.with}>WITH</span>
                 <span>VIRTUAL</span>
