@@ -8,10 +8,12 @@ type CardListProps = {
 };
 export const CardList = (props: CardListProps) => {
   return (
-    <div className="relative m-auto ml-auto grid max-w-max grid-cols-2 gap-4">
-      {props.Posts.map((value, key) => (
-        <Card post={value} key={value.slug || key} />
-      ))}
+    <div className="m-auto max-w-max">
+      <div className="  grid  grid-cols-2 gap-4">
+        {props.Posts.map((value, key) => (
+          <Card post={value} key={value.slug} />
+        ))}
+      </div>
     </div>
   );
 };

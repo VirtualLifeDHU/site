@@ -6,7 +6,6 @@ import markdownToHtml from "../../lib/MarkdownToHtml";
 import { PostType } from "../../types/Posts";
 import { motion } from "framer-motion";
 import styles from "../styles/Home.module.css";
-import { closeSpring } from "../../components/parts/CardList/Animation";
 
 type ActivityReportProps = {
   post: PostType;

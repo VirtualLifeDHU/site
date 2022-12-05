@@ -24,7 +24,7 @@ export const Card: React.FC<CardProps> = (props) => {
       {/* カード本体 */}
       <motion.div
         layoutId={`card-${props.post.slug}`}
-        className="relative aspect-square w-full max-w-[300px] rounded-lg  "
+        className="relative aspect-square  max-w-[300px] rounded-lg  "
         // transition={openSpring}
       >
         {/* タイトル */}
@@ -44,11 +44,11 @@ export const Card: React.FC<CardProps> = (props) => {
         <motion.div
           transition={openSpring}
           // layoutId={`image-${props.post.slug}`}
-          className={"aspect-square"}
+          className={"aspect-square w-full"}
         >
           <Image
-            className="aspect-square h-full w-full rounded-lg object-cover"
-            width={400}
+            className="aspect-square   rounded-lg object-cover"
+            width={300}
             height={300}
             src={props.post.coverImage}
             alt={"image"}

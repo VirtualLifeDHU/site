@@ -22,13 +22,7 @@ ActivityReport.getLayout = (page) => <Layout>{page}</Layout>;
 
 export default ActivityReport;
 export const getStaticProps = async () => {
-  const allPosts = getAllActivityPosts([
-    "title",
-    "coverImage",
-    "slug",
-    "data",
-    "content",
-  ]);
+  const allPosts = getAllActivityPosts(["title", "coverImage", "slug", "data"]);
 
   return {
     props: { allPosts },
