@@ -49,7 +49,7 @@ export default function MyApp({
         }
       `}</style>
 
-      <AnimatePresence mode="wait">
+      <AnimatePresence exitBeforeEnter mode="wait">
         {getLayout(<Component key={router.asPath} {...pageProps} />)}
       </AnimatePresence>
     </>
