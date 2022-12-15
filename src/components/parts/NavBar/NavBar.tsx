@@ -21,11 +21,7 @@ export const NavBar = () => {
   const { y } = useWindowScroll();
 
   const NavBarBigBool = useMemo(() => {
-    if (y < 100) {
-      return true;
-    } else {
-      return false;
-    }
+    return y < 100 ? true : false;
   }, [y]);
 
   return (
