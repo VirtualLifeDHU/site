@@ -1,9 +1,6 @@
 import { ReactNode, useLayoutEffect, useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 
-import { gsap } from "gsap";
-import styles from "./BoxAnimation.module.scss";
-
 type BoxAnimationProps = {
   children: ReactNode;
 };

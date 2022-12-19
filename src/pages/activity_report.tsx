@@ -9,6 +9,7 @@ import { CardList } from "../components/parts/CardList";
 import { SliceInAnimationBox } from "../components/parts/SliceInAnimationBox";
 import { getAllActivityPosts } from "../lib/getActivity";
 import { BoxAnimation } from "../components/features/BoxAnimation";
+import { Heading } from "../components/parts/Heading";
 
 type ActivityReportProps = {
   allPosts: PostType[];

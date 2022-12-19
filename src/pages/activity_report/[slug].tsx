@@ -4,8 +4,6 @@ import { Layout } from "../../components/Layout/Layout";
 import { getAllActivityPosts, getPostBySlug } from "../../lib/getActivity";
 import markdownToHtml from "../../lib/MarkdownToHtml";
 import { PostType } from "../../types/Posts";
-import { motion } from "framer-motion";
-import styles from "../styles/Home.module.css";
 import { BoxAnimation } from "../../components/features/BoxAnimation";
 
 type ActivityReportProps = {
@@ -19,7 +17,6 @@ const Slug: NextPageWithLayout<ActivityReportProps> = (props) => {
           // transition={closeSpring}
           className="  relative aspect-square w-full max-w-max rounded-lg  bg-white "
         >
-          {/* タイトル */}
           <div
             style={{
               background: "linear-gradient(#0000002b, #00000000)",
