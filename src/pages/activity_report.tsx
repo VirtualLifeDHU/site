@@ -1,12 +1,9 @@
-import { NextPage, NextPageWithLayout } from "next";
+import { NextPageWithLayout } from "next";
 import React from "react";
-import Image from "next/image";
-import { Hero } from "../components/parts/Hero";
 
 import { Layout } from "../components/Layout/Layout";
 import { PostType } from "../types/Posts";
 import { CardList } from "../components/parts/CardList";
-import { SliceInAnimationBox } from "../components/parts/SliceInAnimationBox";
 import { getAllActivityPosts } from "../lib/getActivity";
 import { BoxAnimation } from "../components/features/BoxAnimation";
 

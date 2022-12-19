@@ -1,39 +1,22 @@
-import { ReactNode, useLayoutEffect, useRef } from "react";
-import { gsap } from "gsap";
-import styles from "./BoxAnimation.module.scss";
+import { ReactNode } from "react";
+import { motion } from "framer-motion";
 
 type BoxAnimationProps = {
   children: ReactNode;
 };
 
 export const BoxAnimation = (props: BoxAnimationProps) => {
-  const comp = useRef<HTMLDivElement>(null); // create a ref for the root level element (for scoping)
-
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      gsap
-        .timeline({
-          delay: 0.3,
-          scrollTrigger: {
-            trigger: ".moveing",
-          },
-        })
-        .from(".moveing", {
-          y: 50,
-          opacity: 0,
-        })
-        .to(".moveing", {
-          y: 0,
-          opacity: 1,
-          ease: "Power3.easeOut",
-        });
-    }, comp);
-
-    return () => ctx.revert();
-  });
   return (
-    <div ref={comp} className="">
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      exit={{ opacity: 0, y: 10 }}
+      // ref={comp}
+      className=""
+    >
       <div className="moveing">{props.children}</div>
-    </div>
+    </motion.div>
   );
 };

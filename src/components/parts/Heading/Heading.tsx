@@ -1,5 +1,4 @@
-import React, { useLayoutEffect, useRef } from "react";
-import styles from "./Heading.module.scss";
+import React, { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -16,7 +15,7 @@ export const Heading = (props: HeadingProps) => {
     <div ref={comp}>
       <h1
         className={
-          "word  relative  inline-block  overflow-hidden  text-8xl  font-bold not-italic leading-none text-text " +
+          "word  relative  inline-block  overflow-hidden text-7xl font-bold  not-italic leading-none text-text md:text-8xl " +
           props.className
         }
       >

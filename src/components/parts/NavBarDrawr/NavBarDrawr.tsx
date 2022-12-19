@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { MenuIcon } from "../../icon/MenuIcon";
 import Drawer from "react-modern-drawer";
-import styles from "./Drawr.module.scss";
 import { CloseIcon } from "../../icon/CloseIcon";
 import { NavBarLinks } from "../../../lib/ProjectData";
 

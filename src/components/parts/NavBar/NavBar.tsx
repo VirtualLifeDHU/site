@@ -1,7 +1,7 @@
 import logo from "../../../../public/icon/Logo 1.svg";
 import { HTMLMotionProps, motion } from "framer-motion";
 import Image from "next/image";
-import { useCallback, useMemo, useRef } from "react";
+import { useMemo, useRef } from "react";
 import { NavBarDrawr } from "../NavBarDrawr";
 import { useWindowScroll } from "react-use";
 import Link from "next/link";
@@ -21,11 +21,7 @@ export const NavBar = () => {
   const { y } = useWindowScroll();
 
   const NavBarBigBool = useMemo(() => {
-    if (y < 100) {
-      return true;
-    } else {
-      return false;
-    }
+    return y < 100 ? true : false;
   }, [y]);
 
   return (

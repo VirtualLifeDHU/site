@@ -1,5 +1,3 @@
-import { useCardList } from "./useCardList";
-import styles from "./CardList.module.scss";
 import { PostType } from "../../../types/Posts";
 import { Card } from "./Card";
 

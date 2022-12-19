@@ -2,9 +2,7 @@ import { useMotionValue } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useRef } from "react";
-import { motion } from "framer-motion";
 import { PostType } from "../../../types/Posts";
-import { openSpring } from "./Animation";
 import style from "./CardList.module.scss";
 
 export type CardProps = {
@@ -22,8 +20,7 @@ export const Card: React.FC<CardProps> = (props) => {
   return (
     <Link href={`/activity_report/${props.post.slug}`} className={""}>
       {/* カード本体 */}
-      <motion.div
-        layoutId={`card-${props.post.slug}`}
+      <div
         className="relative aspect-square  max-w-[300px] rounded-lg  "
         // transition={openSpring}
       >
@@ -41,8 +38,7 @@ export const Card: React.FC<CardProps> = (props) => {
           </h1>
         </div>
         {/* 画像 */}
-        <motion.div
-          transition={openSpring}
+        <div
           // layoutId={`image-${props.post.slug}`}
           className={"aspect-square w-full"}
         >
@@ -53,8 +49,8 @@ export const Card: React.FC<CardProps> = (props) => {
             src={props.post.coverImage}
             alt={"image"}
           />
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </Link>
   );
 };

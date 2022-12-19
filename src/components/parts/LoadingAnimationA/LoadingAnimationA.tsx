@@ -1,5 +1,3 @@
-import styles from "./LoadingAnimationA.module.scss";
-
 import { motion } from "framer-motion";
 import React from "react";
 type LoadingAnimationAProps = {

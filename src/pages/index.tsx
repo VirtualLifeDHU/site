@@ -1,9 +1,7 @@
-import { NextPage, NextPageWithLayout } from "next";
+import { NextPageWithLayout } from "next";
 import React from "react";
-import Image from "next/image";
 import { Hero } from "../components/parts/Hero";
 
-import styles from "./../styles/index.module.css";
 import { Layout } from "../components/Layout/Layout";
 import { About } from "../components/parts/About";
 import { WeAreVirtualLife } from "../components/View/WeAreVirtualLife";

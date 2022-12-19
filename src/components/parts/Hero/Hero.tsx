@@ -53,7 +53,7 @@ export const Hero = (props: HeroProps) => {
                 <span className="inline-block">バーチャルを</span>
                 <span className="inline-block">
                   <ruby>
-                    生活
+                    人生
                     <rt>ライフ</rt>
                   </ruby>
                 </span>
