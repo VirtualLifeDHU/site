@@ -1,5 +1,5 @@
-import { ReactNode, useLayoutEffect, useRef } from "react";
-import { motion, useScroll } from "framer-motion";
+import { ReactNode } from "react";
+import { motion } from "framer-motion";
 
 type BoxAnimationProps = {
   children: ReactNode;

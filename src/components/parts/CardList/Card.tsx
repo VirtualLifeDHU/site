@@ -2,9 +2,7 @@ import { useMotionValue } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useRef } from "react";
-import { motion } from "framer-motion";
 import { PostType } from "../../../types/Posts";
-import { openSpring } from "./Animation";
 import style from "./CardList.module.scss";
 
 export type CardProps = {

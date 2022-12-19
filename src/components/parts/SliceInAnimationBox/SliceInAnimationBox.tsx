@@ -1,4 +1,3 @@
-import styles from "./SliceInAnimationBox.module.scss";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useRef } from "react";
