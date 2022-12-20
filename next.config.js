@@ -7,7 +7,6 @@ const nextConfig = withBundleAnalyzer({
   experimental: {
     appDir: false,
     scrollRestoration: true,
-    runtime: "experimental-edge",
   },
   images: {
     formats: ["image/avif", "image/webp"],

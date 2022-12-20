@@ -6,6 +6,7 @@ import { PostType } from "../types/Posts";
 import { CardList } from "../components/parts/CardList";
 import { getAllActivityPosts } from "../lib/getActivity";
 import { BoxAnimation } from "../components/features/BoxAnimation";
+import fs from "fs";
 
 type ActivityReportProps = {
   allPosts: PostType[];
@@ -25,6 +26,7 @@ ActivityReport.getLayout = (page) => <Layout>{page}</Layout>;
 
 export default ActivityReport;
 export const getStaticProps = async () => {
+  fs;
   const allPosts = getAllActivityPosts(["title", "coverImage", "slug", "data"]);
 
   return {

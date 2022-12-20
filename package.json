@@ -44,18 +44,18 @@
     "cross-env": "^7.0.3",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-unused-imports": "^2.0.0",
+    "fs": "^0.0.1-security",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
-    "next-export-optimize-images": "^1.9.0",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.18",
     "prettier": "2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "sass": "^1.56.0",
-    "scaffdog": "^2.4.0",
+    "scaffdog": "^0.3.0",
     "tailwindcss": "^3.2.1",
     "typed-css-modules": "^0.7.2",
-    "vercel": "^28.9.0"
+    "vercel": "^19.2.0"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
