@@ -24,11 +24,11 @@ const InterFontThin = Inter({
 });
 const ZenKakuGothicAntique_normal = Zen_Kaku_Gothic_Antique({
   weight: "400",
-  subsets: ["japanese"],
+  subsets: ["cyrillic"],
 });
 const ZenKakuGothicAntique_bold = Zen_Kaku_Gothic_Antique({
   weight: "700",
-  subsets: ["japanese"],
+  subsets: ["cyrillic"],
 });
 
 export default function MyApp({
