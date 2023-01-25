@@ -2,37 +2,11 @@
   margin-top: 80px;
   height: 61px;
   width: 400px;
-  background: linear-gradient(270deg, #98e78c 0%, #00a3ff 50%, #ff008a 100%);
+  // background: linear-gradient(270deg, #98e78c 0%, #00a3ff 50%, #ff008a 100%);
   @media screen and (max-width: 500px) {
     max-width: 85vw;
   }
   @media screen and (min-width: 1200px) {
     width: calc(400px + ((100vw - 1200px) / 2));
-  }
-
-  animation-name: backgroundgradation;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: 100;
-  animation-direction: normal;
-  animation-fill-mode: none;
-  animation-play-state: running;
-}
-
-@keyframes backgroundgradation {
-  0% {
-    background: linear-gradient(270deg, #98e78c 0%, #00a3ff 50%, #ff008a 100%);
-  }
-  33.33% {
-    background: linear-gradient(270deg, #98e78c 0%, #00a3ff 50%, #ff008a 100%);
-    // background: linear-gradient(270deg, #00a3ff 0%, #ff008a 50%, #98e78c 100%);
-  }
-  66.66% {
-    background: linear-gradient(270deg, #98e78c 0%, #00a3ff 50%, #ff008a 100%);
-    // background: linear-gradient(270deg, #ff008a 0%, #98e78c 50%, #00a3ff 100%);
-  }
-  100% {
-    background: linear-gradient(270deg, #98e78c 0%, #00a3ff 50%, #ff008a 100%);
-    // background: linear-gradient(270deg, #98e78c 0%, #00a3ff 50%, #ff008a 100%);
   }
 }
