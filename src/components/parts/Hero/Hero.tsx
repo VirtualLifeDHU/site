@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { HTMLMotionProps, motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { gsapWappar } from "../../../lib/gsap";
 import styles from "./Hero.module.scss";
 
 type HeroProps = {
@@ -7,27 +8,33 @@ type HeroProps = {
 };
 
 export const Hero = (props: HeroProps) => {
-  const TitleAnimation: HTMLMotionProps<"div"> = {
-    initial: { opacity: 0, x: -10 },
-    animate: { opacity: 1, x: 0 },
-    transition: {
-      duration: 0.5,
-    },
-    exit: { opacity: 0, x: -0 },
-  };
+  const TextDivRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    gsapWappar.context(() => {
+      gsapWappar.to(".gsap-initnal-animation", {
+        y: 0,
+        opacity: 1,
+        duration: 0.6,
+      });
+      gsapWappar.fromTo(
+        `${styles.gradetion}`,
+        {
+          background:
+            "linear-gradient(270deg, #98e78c 0%, #00a3ff 50%, #ff008a 100%);",
+        },
+        {
+          yoyo: true,
+          background:
+            "linear-gradient(270deg, #98e78c 30%, #00a3ff 100%, #ff008a 100%);",
+        }
+      );
+    }, TextDivRef);
+  }, [TextDivRef]);
 
   return (
-    <div className="relative h-screen">
-      <motion.div
-        initial={{ opacity: 1 }}
-        animate={{ opacity: 1 }}
-        transition={{
-          duration: 0.5,
-          ease: "easeOut",
-        }}
-        exit={{ opacity: 0, y: 10 }}
-        className="absolute top-0 left-0  h-full w-full "
-      >
+    <div ref={TextDivRef} className="relative h-screen">
+      <div className="absolute top-0 left-0  h-full w-full ">
         <Image
           alt="list"
           width={"1280"}
@@ -35,18 +42,21 @@ export const Hero = (props: HeroProps) => {
           className="h-full w-full object-cover opacity-20"
           src={"/imgs/VRChat_2560x1440_2022-05-10_18-52-09 12.png"}
         />
-      </motion.div>
-      <motion.div
-        {...TitleAnimation}
-        className="absolute top-0 left-0  flex h-full w-full items-center "
+      </div>
+      <div
+        className={` gsap-initnal-animation absolute top-0 left-0 flex h-full w-full items-center `}
+        style={{ transform: "translateY(70px)", opacity: 0 }}
       >
-        <div className={`${styles.gradetion} `}></div>
-      </motion.div>
-      <motion.div
-        {...TitleAnimation}
-        className="absolute top-0 left-0 m-auto flex h-full w-full  flex-col items-center justify-center px-4"
-      >
-        <div className="w-screen max-w-max">
+        <div className={`${styles.gradetion} gsap-gradation-animation`}></div>
+      </div>
+      <div className="absolute top-0 left-0 m-auto flex h-full w-full  flex-col items-center justify-center px-4">
+        <div
+          className={` gsap-initnal-animation  w-screen max-w-max `}
+          style={{
+            transform: "translateY(70px)",
+            opacity: 0,
+          }}
+        >
           <h1 className=" w-full px-2 text-5xl font-bold text-text">
             {props.HeroTitle || (
               <>
@@ -62,7 +72,7 @@ export const Hero = (props: HeroProps) => {
             )}
           </h1>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };
