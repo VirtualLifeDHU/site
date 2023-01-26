@@ -10,3 +10,7 @@
     width: calc(400px + ((100vw - 1200px) / 2));
   }
 }
+.hero-text-animation {
+  transform: translateY(10px);
+  opacity: 0;
+}

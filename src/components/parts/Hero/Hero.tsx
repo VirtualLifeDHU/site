@@ -12,42 +12,20 @@ export const Hero = (props: HeroProps) => {
 
   useEffect(() => {
     gsapWappar.context(() => {
-      gsapWappar.to(".gsap-initnal-animation", {
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-      });
-    }, TextDivRef);
-  }, [TextDivRef]);
-
-  useEffect(() => {
-    gsapWappar.context(() => {
       gsapWappar
         .timeline({
-          repeat: -1, // アニメーションの繰り返し回数。-1で無限回
-          repeatDelay: 0, // ループとループの間の時間
-          yoyo: false,
-          ease: "none",
+          repeat: 0,
+          delay: 0.2,
         })
-        .from(`.gsap-gradation-animation`, {
-          background:
-            "linear-gradient(270deg, #98e78c 0%, #00a3ff 50%, #ff008a 100%)",
-          ease: "none",
+        .to(".gsap-initnal-animation", {
+          y: 0,
+          duration: 0.4,
+          opacity: 1,
         })
-        .to(`.gsap-gradation-animation`, {
-          background:
-            "linear-gradient(270deg, #ff008a 0%, #98e78c 50%, #00a3ff 100%)",
-          ease: "none",
-        })
-        .to(`.gsap-gradation-animation`, {
-          background:
-            "linear-gradient(270deg, #00a3ff 0%, #ff008a 50%, #98e78c 100%)",
-          ease: "none",
-        })
-        .to(`.gsap-gradation-animation`, {
-          background:
-            "linear-gradient(270deg, #98e78c 0%, #00a3ff 50%, #ff008a 100%)",
-          ease: "none",
+        .to(`.hero-text-animation span`, {
+          y: 0,
+          opacity: 1,
+          stagger: 0.1, // 0.02秒ごとに出現
         });
     }, TextDivRef);
   }, [TextDivRef]);
@@ -65,7 +43,7 @@ export const Hero = (props: HeroProps) => {
       </div>
       <div
         className={` gsap-initnal-animation absolute top-0 left-0 flex h-full w-full items-center `}
-        style={{ transform: "translateY(70px)", opacity: 0 }}
+        style={{ transform: "translateY(30px)", opacity: 0 }}
       >
         <div
           className={`${styles.gradetion} gsap-gradation-animation`}
@@ -76,24 +54,50 @@ export const Hero = (props: HeroProps) => {
         ></div>
       </div>
       <div className="absolute top-0 left-0 m-auto flex h-full w-full  flex-col items-center justify-center px-4">
-        <div
-          className={` gsap-initnal-animation  w-screen max-w-max `}
-          style={{
-            transform: "translateY(70px)",
-            opacity: 0,
-          }}
-        >
-          <h1 className=" w-full px-2 text-5xl font-bold text-text">
+        <div className={`  w-screen max-w-max `}>
+          <h1
+            className={` hero-text-animation w-full px-2 text-5xl font-bold text-black xl:text-6xl `}
+          >
             {props.HeroTitle || (
               <>
-                <span className="inline-block">バーチャルを</span>
-                <span className="inline-block">
+                <span
+                  className={` inline-block  ${styles["hero-text-animation"]}`}
+                >
+                  バー
+                </span>
+                <span
+                  className={` inline-block  ${styles["hero-text-animation"]}`}
+                >
+                  チャル
+                </span>
+                <span
+                  className={` inline-block  ${styles["hero-text-animation"]}`}
+                >
+                  を
+                </span>
+                <span
+                  className={` inline-block  ${styles["hero-text-animation"]}`}
+                >
                   <ruby>
                     人生
                     <rt>ライフ</rt>
                   </ruby>
                 </span>
-                <span className="inline-block">の一部に</span>
+                <span
+                  className={` inline-block  ${styles["hero-text-animation"]}`}
+                >
+                  の
+                </span>
+                <span
+                  className={` inline-block  ${styles["hero-text-animation"]}`}
+                >
+                  一部
+                </span>
+                <span
+                  className={` inline-block  ${styles["hero-text-animation"]}`}
+                >
+                  に
+                </span>
               </>
             )}
           </h1>
