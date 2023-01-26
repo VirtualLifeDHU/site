@@ -9,7 +9,10 @@ type HeroProps = {
 
 export const Hero = (props: HeroProps) => {
   const TextDivRef = useRef<HTMLDivElement>(null);
+  const ImageimgRef = useRef<HTMLImageElement>(null);
+  const ImageWapparRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {}, [ImageimgRef]);
   useEffect(() => {
     gsapWappar.context(() => {
       gsapWappar
@@ -26,18 +29,24 @@ export const Hero = (props: HeroProps) => {
           y: 0,
           opacity: 1,
           stagger: 0.1, // 0.02秒ごとに出現
+          ease: "Power3.easeOut",
         });
     }, TextDivRef);
-  }, [TextDivRef]);
+  }, [TextDivRef, ImageWapparRef]);
 
   return (
     <div ref={TextDivRef} className="relative h-screen">
-      <div className="absolute top-0 left-0  h-full w-full ">
+      <div
+        className="absolute top-0 left-0  h-full w-full "
+        ref={ImageWapparRef}
+      >
         <Image
+          ref={ImageimgRef}
+          style={{ overflow: "hidden" }}
           alt="list"
           width={"1280"}
           height={"720"}
-          className="h-full w-full object-cover opacity-20"
+          className="h-full max-h-full w-full max-w-full overflow-hidden object-cover opacity-20"
           src={"/imgs/VRChat_2560x1440_2022-05-10_18-52-09 12.png"}
         />
       </div>
