@@ -33,11 +33,17 @@ export const About = () => {
           scrub: 1,
         },
       })
-      .to(`.${styles.image}`, {
-        scale: 1.1,
-        ease: "none",
-        duration: 1,
-      });
+      .fromTo(
+        `.${styles.figure}`,
+        {
+          y: -20,
+        },
+        {
+          y: 30,
+          ease: "none",
+          duration: 1,
+        }
+      );
   }, [comp]);
 
   return (
