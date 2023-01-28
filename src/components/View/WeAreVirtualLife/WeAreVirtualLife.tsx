@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { BoxAnimation } from "../../features/BoxAnimation";
+import { ScroleFollowImage } from "../../features/ScroleFollowImage";
 import { Body } from "../../parts/Body";
 import { Heading } from "../../parts/Heading";
 import styles from "./WeAreVirtualLife.module.scss";
@@ -10,12 +10,14 @@ export const WeAreVirtualLife = () => {
     <BoxAnimation>
       <div className="relative m-auto ml-auto  max-w-max">
         <div>
-          <Image
+          <ScroleFollowImage
             className="ml-[auto] max-w-xl"
-            alt="image"
-            src={img}
-            width={1200}
-            height={800}
+            img={{
+              alt: "image",
+              src: img,
+              width: 1200,
+              height: 800,
+            }}
           />
         </div>
         <div className="absolute top-0 left-0 flex h-full items-center">

@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import { BoxAnimation } from "../../features/BoxAnimation";
 import { gsapWappar } from "../../../lib/gsap";
 import styles from "./About.module.scss";
+import { ScroleFollowImage } from "../../features/ScroleFollowImage";
 
 export const About = () => {
   const img = "/imgs/fff.png";
@@ -68,16 +69,14 @@ export const About = () => {
               opacity: 0,
             }}
           >
-            <figure className={styles.figure}>
-              <Image
-                src={img}
-                className={styles.image}
-                ref={ImageRef}
-                alt="alt"
-                width={600}
-                height={400}
-              />
-            </figure>
+            <ScroleFollowImage
+              img={{
+                src: img,
+                alt: "about image",
+                width: 600,
+                height: 400,
+              }}
+            />
             <div className="ml-auto">
               <p className="inline-flex flex-col items-end text-6xl font-bold md:text-8xl">
                 <span>LIFE</span>
