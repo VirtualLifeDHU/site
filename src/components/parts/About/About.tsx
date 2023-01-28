@@ -1,36 +1,44 @@
 import Image from "next/image";
 import style from "./About.module.scss";
 import { Heading } from "../Heading";
-import { useLayoutEffect, useRef } from "react";
-import { gsap } from "gsap";
+import { useEffect, useRef } from "react";
 import { BoxAnimation } from "../../features/BoxAnimation";
+import { gsapWappar } from "../../../lib/gsap";
+import styles from "./About.module.scss";
 
 export const About = () => {
   const img = "/imgs/fff.png";
 
   const comp = useRef<HTMLDivElement>(null); // create a ref for the root level element (for scoping)asdflkjas;ldfkjasdlfk
+  const AnimatinBoxRef = useRef<HTMLDivElement>(null);
+  const ImageRef = useRef<HTMLImageElement>(null);
 
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: ".rect",
-          },
-        })
-        .from(".rect", {
-          y: 50,
-          opacity: 0,
-        })
-        .to(".word", {
-          y: 0,
-          opacity: 1,
-          ease: "Power2.easeOut",
-        });
-    }, comp);
-
-    return () => ctx.revert();
-  });
+  useEffect(() => {
+    gsapWappar.to(AnimatinBoxRef.current, {
+      y: 0,
+      opacity: 1,
+      ease: "Power2.easeOut",
+      scrollTrigger: {
+        trigger: AnimatinBoxRef.current,
+        start: "top center+=20%",
+        markers: false,
+      },
+    });
+    gsapWappar
+      .timeline({
+        scrollTrigger: {
+          trigger: `.${styles.figure}`,
+          start: "top 80p%",
+          end: `+=${window.innerHeight / 2}`,
+          scrub: 1,
+        },
+      })
+      .to(`.${styles.image}`, {
+        scale: 1.1,
+        ease: "none",
+        duration: 1,
+      });
+  }, [comp]);
 
   return (
     <BoxAnimation>
@@ -46,8 +54,24 @@ export const About = () => {
           <span className="text-sm">私達について</span>
         </Heading>
         <div className="ml-auto">
-          <div className="rect flex flex-col items-center gap-4 p-2 md:flex-row">
-            <Image src={img} alt="alt" width={600} height={400} />
+          <div
+            className="rect flex flex-col items-center gap-4 p-2 md:flex-row"
+            ref={AnimatinBoxRef}
+            style={{
+              transform: "translateY(50px)",
+              opacity: 0,
+            }}
+          >
+            <figure className={styles.figure}>
+              <Image
+                src={img}
+                className={styles.image}
+                ref={ImageRef}
+                alt="alt"
+                width={600}
+                height={400}
+              />
+            </figure>
             <div className="ml-auto">
               <p className="inline-flex flex-col items-end text-6xl font-bold md:text-8xl">
                 <span>LIFE</span>
