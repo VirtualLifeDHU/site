@@ -12,7 +12,7 @@ module.exports = {
         max: "1200px",
       },
       colors: {
-        text: "#3F3F3F",
+        text: "#111111",
         background: "#FAFAFA",
         button: "#151515",
       },
