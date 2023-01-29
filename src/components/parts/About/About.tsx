@@ -5,6 +5,7 @@ import { BoxAnimation } from "../../features/BoxAnimation";
 import { gsapWappar } from "../../../lib/gsap";
 import styles from "./About.module.scss";
 import { ScroleFollowImage } from "../../features/ScroleFollowImage";
+import { SectionHeading } from "../SectionHeading";
 
 export const About = () => {
   const img = "/imgs/fff.png";
@@ -48,16 +49,7 @@ export const About = () => {
   return (
     <BoxAnimation>
       <div className="m-auto flex max-w-max flex-col gap-2">
-        <Heading
-          level={1}
-          className="inline-flex flex-col gap-4 md:flex-row md:items-center"
-        >
-          <span>ABOUT</span>
-          <span className="hidden md:block">
-            <hr className="w-28 border-gray-800 px-4" />
-          </span>
-          <span className="text-sm">私達について</span>
-        </Heading>
+        <SectionHeading main="about" sub="私達について" />
         <div className="ml-auto">
           <div
             className="rect flex flex-col items-center gap-4 p-2 md:flex-row"

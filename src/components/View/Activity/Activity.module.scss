@@ -1,0 +1,29 @@
+@mixin text-clips {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradation-1 {
+  background: linear-gradient(90deg, #3067f5 50%, #d74a85 103.57%);
+  @include text-clips;
+}
+
+.text-gradation-2 {
+  background: linear-gradient(
+    270deg,
+    #98e78c 0.86%,
+    #00a3ff 49.92%,
+    #ff008a 100%
+  );
+  @include text-clips;
+}
+
+.text-gradation-3 {
+  background: linear-gradient(90deg, #2bd8b9 30.09%, #c188ed 69.16%);
+  @include text-clips;
+}
+
+.text-gradation-4 {
+  background: linear-gradient(90deg, #3067f5 10%, #d74a85 103.57%);
+  @include text-clips;
+}
