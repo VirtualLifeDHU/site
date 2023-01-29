@@ -1,4 +1,3 @@
-import Image from "next/image";
 import style from "./About.module.scss";
 import { Heading } from "../Heading";
 import { useEffect, useRef } from "react";
@@ -12,7 +11,6 @@ export const About = () => {
 
   const comp = useRef<HTMLDivElement>(null); // create a ref for the root level element (for scoping)asdflkjas;ldfkjasdlfk
   const AnimatinBoxRef = useRef<HTMLDivElement>(null);
-  const ImageRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     gsapWappar.to(AnimatinBoxRef.current, {

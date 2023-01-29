@@ -10,14 +10,14 @@ type ScroleFollowImageProps = {
 };
 
 export const ScroleFollowImage = (props: ScroleFollowImageProps) => {
-  const { className: ImageClassNmae, ...ImageProps } = props.img;
+  const { className: ImageClassNmae, alt: ImageAlt, ...ImageProps } = props.img;
   const FigureRef = useRef<HTMLElement>(null);
   useEffect(() => {
     gsapWappar
       .timeline({
         scrollTrigger: {
           trigger: FigureRef.current,
-          start: "top 80p%",
+          start: "top 90p%",
           end: `+=${window.innerHeight * 0.75}`,
           scrub: 1,
         },
@@ -28,7 +28,7 @@ export const ScroleFollowImage = (props: ScroleFollowImageProps) => {
           y: -20,
         },
         {
-          y: 50,
+          y: 30,
           ease: "none",
           duration: 1,
         }
@@ -40,7 +40,11 @@ export const ScroleFollowImage = (props: ScroleFollowImageProps) => {
       className={classNames(styles.figure, props.className)}
       ref={FigureRef}
     >
-      <Image className={classNames(styles.image)} {...props.img} />
+      <Image
+        alt={ImageAlt || "image"}
+        className={classNames(styles.image, ImageClassNmae)}
+        {...ImageProps}
+      />
     </figure>
   );
 };
