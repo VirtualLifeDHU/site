@@ -27,3 +27,43 @@
   background: linear-gradient(90deg, #3067f5 10%, #d74a85 103.57%);
   @include text-clips;
 }
+.actibtyItem {
+  height: calc(100vh + 74px);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  &:nth-child(1) {
+    background: #ff0000;
+  }
+
+  &:nth-child(2) {
+    background: #ff9900;
+  }
+  &:nth-child(3) {
+    background: #1a80f5;
+  }
+  &:nth-child(4) {
+    background: #ffff00;
+  }
+  &:nth-child(5) {
+    background: #0000ff;
+  }
+}
+.pinSection {
+  height: 100%;
+  width: 100%;
+
+  .pin-spacer {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+
+.pinSectionImage {
+  // top: -50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+  // position: absolute;
+  // background-size: contain;
+  // height: 750px;
+  width: 60%;
+}

@@ -52,36 +52,43 @@ const ActivityList: Array<{
 export const Activity = () => {
   useEffect(() => {
     gsapWappar.context(() => {
-      [0, 1, 2, 3].map((value) => {
+      Array.apply(null, Array(ActivityList.length)).map((value, key) => {
         ScrollTrigger.create({
-          trigger: ".activity-item-" + value,
-          pin: `.activity-item-${value} .heading && .activity-item-${value} .image`,
+          trigger: `.activity-item-${key}`,
+          pin: `.activity-item-${key} .${styles.pinSection}`,
           markers: false,
-          start: "top top",
-          end: "bottom top",
+          start: "top top+=76px",
+          end: value == 0 ? "bottom top" : "bottom top-=50%",
         });
       });
     });
   }, []);
 
   return (
-    <div className="max-wmax mx-auto">
+    <div className="">
       <div>
         <SectionHeading sub="活動" main="Activity" />
-        {ActivityList.map((value, key) => (
-          <div className={`activity-item-${key}`} key={key}>
-            <Image
-              alt={value.img.alt}
-              width={800}
-              height={450}
-              src={value.img.src}
-              className={"image"}
-            />
-            <Heading level={2} className={classNames("heading ")}>
-              {value.text}
-            </Heading>
-          </div>
-        ))}
+        <div>
+          {ActivityList.map((value, key) => (
+            <div
+              className={classNames(`activity-item-${key}`, styles.actibtyItem)}
+              key={key}
+            >
+              <div className={classNames("pin-section", styles.pinSection)}>
+                <Heading level={2} className={classNames("heading ")}>
+                  {value.text}
+                </Heading>
+                <Image
+                  alt={value.img.alt}
+                  width={800}
+                  height={450}
+                  src={value.img.src}
+                  className={classNames("image", styles.pinSectionImage)}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
