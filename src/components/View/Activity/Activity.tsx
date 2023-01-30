@@ -75,16 +75,20 @@ export const Activity = () => {
               key={key}
             >
               <div className={classNames("pin-section", styles.pinSection)}>
-                <Heading level={2} className={classNames("heading ")}>
-                  {value.text}
-                </Heading>
-                <Image
-                  alt={value.img.alt}
-                  width={800}
-                  height={450}
-                  src={value.img.src}
-                  className={classNames("image", styles.pinSectionImage)}
-                />
+                <div className={styles.imageWapper}>
+                  <Image
+                    alt={value.img.alt}
+                    width={1800}
+                    height={1200}
+                    src={value.img.src}
+                    className={classNames("image", styles.pinSectionImage)}
+                  />
+                </div>
+                <div className={classNames(styles.headginWapper)}>
+                  <Heading level={2} className={classNames("heading ")}>
+                    {value.text}
+                  </Heading>
+                </div>
               </div>
             </div>
           ))}
