@@ -71,7 +71,12 @@ export const Hero = (props: HeroProps) => {
                 <span
                   className={` inline-block  ${styles["hero-text-animation"]}`}
                 >
-                  チャル
+                  チャ
+                </span>
+                <span
+                  className={` inline-block  ${styles["hero-text-animation"]}`}
+                >
+                  ル
                 </span>
                 <span
                   className={` inline-block  ${styles["hero-text-animation"]}`}

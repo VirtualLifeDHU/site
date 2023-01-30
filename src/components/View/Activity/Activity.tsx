@@ -1,4 +1,7 @@
+import classNames from "classnames";
 import Image from "next/image";
+import { useEffect } from "react";
+import { gsapWappar, ScrollTrigger } from "../../../lib/gsap";
 import { Heading } from "../../parts/Heading";
 import { SectionHeading } from "../../parts/SectionHeading";
 import styles from "./Activity.module.scss";
@@ -47,19 +50,36 @@ const ActivityList: Array<{
 ];
 
 export const Activity = () => {
+  useEffect(() => {
+    gsapWappar.context(() => {
+      [0, 1, 2, 3].map((value) => {
+        ScrollTrigger.create({
+          trigger: ".activity-item-" + value,
+          pin: `.activity-item-${value} .heading && .activity-item-${value} .image`,
+          markers: false,
+          start: "top top",
+          end: "bottom top",
+        });
+      });
+    });
+  }, []);
+
   return (
     <div className="max-wmax mx-auto">
       <div>
         <SectionHeading sub="活動" main="Activity" />
         {ActivityList.map((value, key) => (
-          <div key={key}>
+          <div className={`activity-item-${key}`} key={key}>
             <Image
               alt={value.img.alt}
               width={800}
               height={450}
               src={value.img.src}
+              className={"image"}
             />
-            <Heading level={2}>{value.text}</Heading>
+            <Heading level={2} className={classNames("heading ")}>
+              {value.text}
+            </Heading>
           </div>
         ))}
       </div>

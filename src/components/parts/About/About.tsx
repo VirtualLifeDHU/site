@@ -1,5 +1,4 @@
 import style from "./About.module.scss";
-import { Heading } from "../Heading";
 import { useEffect, useRef } from "react";
 import { BoxAnimation } from "../../features/BoxAnimation";
 import { gsapWappar } from "../../../lib/gsap";
