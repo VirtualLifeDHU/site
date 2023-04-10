@@ -15,6 +15,8 @@ module.exports = {
         text: "#111111",
         background: "#FAFAFA",
         button: "#151515",
+        bgGradation:
+          "linear-gradient( 0deg, #f2c5eb 42.76%, #5bc9f9 69.18%,#ff75d0 97.79%)",
       },
     },
   },

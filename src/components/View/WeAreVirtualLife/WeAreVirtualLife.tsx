@@ -20,13 +20,13 @@ export const WeAreVirtualLife = () => {
             }}
           />
         </div>
-        <div className="absolute top-0 left-0 flex h-full items-center">
+        <div className="flex h-full items-center md:absolute   md:top-0 md:left-0">
           <div>
             <Heading level={1} className={"bg-white/90 backdrop-blur"}>
               <span>We are </span>
               <span className={styles.gradesionColor}>Virtual Life</span>
             </Heading>
-            <Body className="max-w-[calc(100%-600px)]">
+            <Body className="md:max-w-[calc(100%-600px)]">
               DHU公認サークル『バーチャルライフ』
               <br />
               <br />

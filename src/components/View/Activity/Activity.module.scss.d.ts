@@ -9,5 +9,6 @@ declare const styles: {
   readonly headginWapper: string;
   readonly imageWapper: string;
   readonly pinSectionImage: string;
+  readonly heading: string;
 };
 export = styles;

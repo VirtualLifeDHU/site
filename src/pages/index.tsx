@@ -3,10 +3,9 @@ import React from "react";
 import { Hero } from "../components/parts/Hero";
 
 import { Layout } from "../components/Layout/Layout";
-import { About } from "../components/parts/About";
 import { WeAreVirtualLife } from "../components/View/WeAreVirtualLife";
 import Head from "next/head";
-import { Activity } from "../components/View/Activity";
+import { Join } from "../components/parts/Join";
 
 const Home: NextPageWithLayout = () => (
   <div className="flex flex-col gap-32">
@@ -14,9 +13,10 @@ const Home: NextPageWithLayout = () => (
       <title>VirtualLife</title>
     </Head>
     <Hero />
-    <About />
+    {/* <About /> */}
     <WeAreVirtualLife />
-    <Activity />
+    {/* <Activity /> */}
+    <Join />
   </div>
 );
 

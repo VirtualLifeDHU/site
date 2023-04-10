@@ -55,7 +55,7 @@ export const Activity = () => {
       Array.apply(null, Array(ActivityList.length)).map((value, key) => {
         ScrollTrigger.create({
           trigger: `.activity-item-${key}`,
-          pin: `.activity-item-${key} .${styles.pinSection}`,
+          pin: `.activity-item-${key} .pin-section `,
           markers: false,
           start: "top top+=76px",
           end: value == 0 ? "bottom top" : "bottom top-=50%",
@@ -85,7 +85,10 @@ export const Activity = () => {
                   />
                 </div>
                 <div className={classNames(styles.headginWapper)}>
-                  <Heading level={2} className={classNames("heading ")}>
+                  <Heading
+                    level={2}
+                    className={classNames("heading ", styles.heading)}
+                  >
                     {value.text}
                   </Heading>
                 </div>
