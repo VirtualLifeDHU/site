@@ -1,0 +1,91 @@
+@mixin text-clips {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradation-1 {
+  background: linear-gradient(90deg, #3067f5 50%, #d74a85 103.57%);
+  @include text-clips;
+}
+
+.text-gradation-2 {
+  background: linear-gradient(
+    270deg,
+    #98e78c 0.86%,
+    #00a3ff 49.92%,
+    #ff008a 100%
+  );
+  @include text-clips;
+}
+
+.text-gradation-3 {
+  background: linear-gradient(90deg, #2bd8b9 30.09%, #c188ed 69.16%);
+  @include text-clips;
+}
+
+.text-gradation-4 {
+  background: linear-gradient(90deg, #3067f5 10%, #d74a85 103.57%);
+  @include text-clips;
+}
+.actibtyItem {
+  height: calc(100vh + 74px);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  &:nth-child(1) {
+    background: #ff0000;
+  }
+
+  &:nth-child(2) {
+    background: #ff9900;
+  }
+  &:nth-child(3) {
+    background: #1a80f5;
+  }
+  &:nth-child(4) {
+    background: #ffff00;
+  }
+  &:nth-child(5) {
+    background: #0000ff;
+  }
+  div {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+.pinSection {
+  height: 100%;
+  width: 100%;
+
+  position: relative;
+  .pin-spacer {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+.headginWapper {
+  position: absolute;
+  top: 70px;
+  left: 20px;
+  margin-right: 20px;
+  background: #ffffffe5;
+  border-radius: 10px;
+  padding: 4px;
+  backdrop-filter: blur(16px);
+}
+.imageWapper {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  place-content: center;
+}
+.pinSectionImage {
+  max-width: calc(100% - 300px);
+
+  margin: auto;
+  max-height: calc(100vh - 75px - 100px);
+}
+.heading {
+  font-size: 100px;
+}

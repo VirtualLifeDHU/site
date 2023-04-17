@@ -2,16 +2,15 @@
   margin-top: 80px;
   height: 61px;
   width: 400px;
-  background: linear-gradient(
-    270deg,
-    #98e78c 0.86%,
-    #00a3ff 49.92%,
-    #ff008a 100%
-  );
+  // background: linear-gradient(270deg, #98e78c 0%, #00a3ff 50%, #ff008a 100%);
   @media screen and (max-width: 500px) {
     max-width: 85vw;
   }
   @media screen and (min-width: 1200px) {
     width: calc(400px + ((100vw - 1200px) / 2));
   }
+}
+.hero-text-animation {
+  transform: translateY(20px);
+  opacity: 0;
 }

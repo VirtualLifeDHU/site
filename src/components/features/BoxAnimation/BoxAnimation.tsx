@@ -1,22 +1,37 @@
-import { ReactNode } from "react";
-import { motion } from "framer-motion";
+import { ReactNode, useEffect, useRef } from "react";
+import { gsapWappar } from "../../../lib/gsap";
 
 type BoxAnimationProps = {
   children: ReactNode;
 };
 
 export const BoxAnimation = (props: BoxAnimationProps) => {
+  const WapperDivRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    gsapWappar.context(() => {
+      gsapWappar.to(WapperDivRef.current, {
+        y: 0,
+        opacity: 1,
+        scrollTrigger: {
+          trigger: WapperDivRef.current,
+          start: "top center+=20%",
+          markers: false,
+        },
+      });
+    });
+  }, [WapperDivRef]);
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      exit={{ opacity: 0, y: 10 }}
-      // ref={comp}
-      className=""
+    <div
+      ref={WapperDivRef}
+      className="gsap-box-animation"
+      style={{
+        transform: "translateY(30px)",
+        opacity: 0,
+      }}
     >
-      <div className="moveing">{props.children}</div>
-    </motion.div>
+      <div className={"gsap-box-animation-moveing"}>{props.children}</div>
+    </div>
   );
 };
