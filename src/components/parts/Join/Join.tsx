@@ -1,5 +1,3 @@
-import { Heading } from "../Heading";
-import styles from "./Join.module.scss";
 import NextImage from "next/image";
 
 export const Join = () => {
