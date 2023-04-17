@@ -6,6 +6,7 @@ import { Layout } from "../components/Layout/Layout";
 import { WeAreVirtualLife } from "../components/View/WeAreVirtualLife";
 import Head from "next/head";
 import { Join } from "../components/parts/Join";
+import { WeWantToDo } from "../components/View/WeWantToDo";
 
 const Home: NextPageWithLayout = () => (
   <div className="flex flex-col gap-32">
@@ -16,6 +17,7 @@ const Home: NextPageWithLayout = () => (
     {/* <About /> */}
     <WeAreVirtualLife />
     {/* <Activity /> */}
+    <WeWantToDo />
     <Join />
   </div>
 );
