@@ -67,7 +67,7 @@ export const About = () => {
               }}
             />
             <div className="ml-auto">
-              <p className="inline-flex flex-col items-end text-6xl font-bold md:text-8xl">
+              <p className="inline-flex flex-col items-end bg-white/90 text-6xl font-bold backdrop-blur md:text-8xl">
                 <span>LIFE</span>
                 <span className={style.with}>WITH</span>
                 <span>VIRTUAL</span>
