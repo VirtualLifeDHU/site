@@ -5,9 +5,10 @@ import { gsapWappar } from "../../../lib/gsap";
 import styles from "./About.module.scss";
 import { ScroleFollowImage } from "../../features/ScroleFollowImage";
 import { SectionHeading } from "../SectionHeading";
+import { ProjextImages } from "../../../lib/ProjectData";
 
 export const About = () => {
-  const img = "/imgs/fff.png";
+  const img = ProjextImages.AboutImage;
 
   const comp = useRef<HTMLDivElement>(null); // create a ref for the root level element (for scoping)asdflkjas;ldfkjasdlfk
   const AnimatinBoxRef = useRef<HTMLDivElement>(null);

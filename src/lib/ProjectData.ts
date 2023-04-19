@@ -11,3 +11,8 @@ export const NavBarLinks: Array<{
     link: "/",
   },
 ];
+
+export const ProjextImages = {
+  AboutImage: "/imgs/image1.jpg",
+  WeAreVirtualLifeImage: "/imgs/image2.jpg",
+};
