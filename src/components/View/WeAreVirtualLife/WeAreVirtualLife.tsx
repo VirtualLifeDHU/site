@@ -1,3 +1,4 @@
+import { ProjextImages } from "../../../lib/ProjectData";
 import { BoxAnimation } from "../../features/BoxAnimation";
 import { ScroleFollowImage } from "../../features/ScroleFollowImage";
 import { Body } from "../../parts/Body";
@@ -5,7 +6,7 @@ import { Heading } from "../../parts/Heading";
 import styles from "./WeAreVirtualLife.module.scss";
 
 export const WeAreVirtualLife = () => {
-  const img = "/imgs/fff.png";
+  const img = ProjextImages.WeAreVirtualLifeImage;
   return (
     <BoxAnimation>
       <div className="relative m-auto ml-auto  max-w-max">

@@ -1,5 +1,6 @@
 declare const styles: {
-  readonly bg: string;
-  readonly gradesionColor: string;
+  readonly "bg": string;
+  readonly "gradesionColor": string;
 };
 export = styles;
+
