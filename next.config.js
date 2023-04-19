@@ -14,6 +14,7 @@ const nextConfig = withBundleAnalyzer(
       formats: ["image/avif", "image/webp"],
       deviceSizes: [640, 768, 1024, 1280, 1440, 1980, 2560],
     },
+    trailingSlash: true,
   })
 );
 
