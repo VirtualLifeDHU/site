@@ -70,8 +70,9 @@ export default function MyApp({
         title={projextData.siteName}
         og={{
           title: projextData.siteName,
-          image: `${projextData.url}/og.png`,
-          type: "article",
+          image: `${projextData.url}/ogp.png`,
+          description: projextData.description,
+          type: "website",
         }}
         twitter={{
           card: "summary_large_image",

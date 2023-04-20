@@ -19,4 +19,6 @@ export const ProjextImages = {
 export const projextData = {
   siteName: "VirtualLife",
   url: "https://virtuallife.one",
+  description:
+    "デジタルハリウッド大学公認サークル「VirtualLife」の公式ウェブサイトです。",
 };
