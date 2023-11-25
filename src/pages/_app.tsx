@@ -66,9 +66,6 @@ export default function MyApp({
         html {
           font-family: ${InterFontNomal.style.fontFamily};
         }
-        body {
-          font-family: ${ZenKakuGothicAntique_normal.style.fontFamily};
-        }
       `}</style>
 
       <AnimatePresence exitBeforeEnter mode="wait">
