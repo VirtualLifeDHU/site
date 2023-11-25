@@ -10,28 +10,12 @@ import { projextData } from "../lib/ProjectData";
 import NextHeadSeo from "next-head-seo";
 
 const InterFontNomal = Inter({
-  weight: "400",
-  subsets: ["cyrillic"],
-});
-const InterFontBold = Inter({
-  weight: "700",
-  subsets: ["cyrillic"],
-});
+  weight: ["400", "700", "800", "100"],
 
-const InterFontVeryBold = Inter({
-  weight: "800",
-  subsets: ["cyrillic"],
-});
-const InterFontThin = Inter({
-  weight: "100",
   subsets: ["cyrillic"],
 });
 const ZenKakuGothicAntique_normal = Zen_Kaku_Gothic_Antique({
-  weight: "400",
-  subsets: ["cyrillic"],
-});
-const ZenKakuGothicAntique_bold = Zen_Kaku_Gothic_Antique({
-  weight: "700",
+  weight: ["400", "700"],
   subsets: ["cyrillic"],
 });
 
@@ -78,12 +62,12 @@ export default function MyApp({
           card: "summary_large_image",
         }}
       />
-
       <style jsx global>{`
         html {
-          font-family: ${InterFontBold} ${InterFontNomal} ${InterFontVeryBold}
-              ${InterFontThin} ${ZenKakuGothicAntique_normal.style.fontFamily},
-            ${ZenKakuGothicAntique_bold} !important;
+          font-family: ${InterFontNomal.style.fontFamily};
+        }
+        body {
+          font-family: ${ZenKakuGothicAntique_normal.style.fontFamily};
         }
       `}</style>
 
