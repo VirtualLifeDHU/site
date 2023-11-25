@@ -83,7 +83,7 @@ export default function MyApp({
         html {
           font-family: ${InterFontBold} ${InterFontNomal} ${InterFontVeryBold}
               ${InterFontThin} ${ZenKakuGothicAntique_normal.style.fontFamily},
-            ${ZenKakuGothicAntique_bold};
+            ${ZenKakuGothicAntique_bold} !important;
         }
       `}</style>
 
